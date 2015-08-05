@@ -7,7 +7,7 @@
       <version>20</version>
     </parent>
 
-    <artifactId>java-json-performance</artifactId>
+    <artifactId>java-json-performance-benchmarks</artifactId>
     <version>0.5.0-SNAPSHOT</version>
     <name>Java JSON Performance Benchmarks</name>
     <packaging>jar</packaging>
@@ -85,6 +85,12 @@
         <version>2.3.1</version>
       </dependency>
 
+      <!--  and Json.io from https://github.com/jdereg/json-io -->
+	  <dependency>
+		  <groupId>com.cedarsoftware</groupId>
+		  <artifactId>json-io</artifactId>
+		  <version>4.1.6</version>
+	  </dependency>
     </dependencies>
 
     <build>
