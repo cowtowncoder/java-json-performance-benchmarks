@@ -35,9 +35,29 @@ abstract class DZoneTestBase
     public abstract int _writeItems(List<MeasurementRecord> items, OutputStream out) throws Exception;
     
     public abstract String _writeAsString(List<MeasurementRecord> items) throws Exception;
-    
+
+    // // // Using OutputStream
+
+    @Benchmark
+    @OutputTimeUnit(TimeUnit.SECONDS)
+    public void write10UsingStream(Blackhole bh) throws Exception {
+        bh.consume(_writeItems(list10, NOP_OUTPUT_STREAM));
+    }
+
+    @Benchmark
+    @OutputTimeUnit(TimeUnit.SECONDS)
+    public void write1kUsingStream(Blackhole bh) throws Exception {
+        bh.consume(_writeItems(list1000, NOP_OUTPUT_STREAM));
+    }
+
+    @Benchmark
+    @OutputTimeUnit(TimeUnit.SECONDS)
+    public void write100kUsingStream(Blackhole bh) throws Exception {
+        bh.consume(_writeItems(list100000, NOP_OUTPUT_STREAM));
+    }
+
     // // // Using Writer
-    
+
     @Benchmark
     @OutputTimeUnit(TimeUnit.SECONDS)
     public void write10UsingWriter(Blackhole bh) throws Exception {
