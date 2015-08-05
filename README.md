@@ -4,9 +4,9 @@ This project contains a set of performance micro-benchmarks, based on excellent
 [JMH](http://openjdk.java.net/projects/code-tools/jmh/) package.
 Benchmarks exercise JSON reading and/or writing performance of a few popular Java JSON libraries:
 
-* [https://github.com/FasterXML/jackson](Jackson)
-* [https://github.com/google/gson](GSON)
-* [https://github.com/jdereg/json-io](json-io)
+* [Jackson](https://github.com/FasterXML/jackson)
+* [GSON](https://github.com/google/gson)
+* [json-io](https://github.com/jdereg/json-io)
 
 The criteria for inclusion here is that for a library to be included it should
 
