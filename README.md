@@ -78,11 +78,13 @@ But to give some idea of typical results, here are samples I get running tests o
 # Run complete. Total time: 00:04:16
 
 Benchmark                           Mode  Cnt     Score    Error  Units
-DZoneWriteGSON.write1kAsString     thrpt   45  1242.529 ±  9.687  ops/s
-DZoneWriteJackson.write1kAsString  thrpt   45  4328.082 ± 58.835  ops/s
-DZoneWriteJsonIO.write1kAsString   thrpt   45   883.330 ±  9.206  ops/s
+DZoneWriteJacksonJr.write1kAsString  thrpt   45  4996.359 ± 58.990  ops/s
+DZoneWriteJackson.write1kAsString    thrpt   45  4343.665 ± 52.896  ops/s
+DZoneWriteMoshi.write1kAsString      thrpt   45  1650.772 ± 13.865  ops/s
+DZoneWriteGSON.write1kAsString       thrpt   45  1213.553 ± 16.406  ops/s
+DZoneWriteJsonIO.write1kAsString     thrpt   45   887.466 ±  6.372  ops/s
 ```
 
-Given that the test measures throughput, Jackson is about 5x as fast as json.io for this test, and 3.5x as fast as GSON.
+Given that the test measures throughput, Jackson is about 5x as fast as json.io for this test.
 
 
