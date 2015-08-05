@@ -28,7 +28,12 @@ All options are explained by jmh documentation; an easy way to see options avail
 
 ## Write Tests inspired by Dzone article
 
-Following tests were written inspired by a [https://t.co/10lR0tQJjV](DZone Java performance) article.
+Following tests were written inspired by a [DZone Java Performance](https://t.co/10lR0tQJjV] article.
+The original tests had many unfortunate problems; starting with the fact that it does not perform proper warmup, nor run long enough to give statistically meaning results.
+One can also argue whether serialization as String is a meanginful test (since it is rarely used for production), but that test case is included as-is along with other options.
+
+Test as implemented here relies on `jmh` to provide proper performance test setup, measurements, warmup, and to avoid common gotchas that plague naive Java performance tests.
+If not done so yet, you may want to read the longer explanation of [reasons to use JMH](http://psy-lob-saw.blogspot.com/2013/04/writing-java-micro-benchmarks-with-jmh.html).
 
 ### Writing a List of POJOs
 
