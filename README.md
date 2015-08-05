@@ -6,6 +6,14 @@ Benchmarks exercise JSON reading and/or writing performance of a few popular Jav
 
 * [https://github.com/FasterXML/jackson](Jackson)
 * [https://github.com/google/gson](GSON)
+* [https://github.com/jdereg/json-io](json-io)
+
+The criteria for inclusion here is that for a library to be included it should
+
+1. be published to the central Maven repository (so we can include official builds)
+2. be able to read and write POJOs, not just "Lists and Maps" or "custom tree nodes library defines" (although some tests may also exercise these styles as well)
+
+and for this reason some commonly used libraries (like old "org.json" library) are not included.
 
 ## Usage
 
