@@ -2,7 +2,6 @@ package com.cowtowncoder.jsonperf.dzone;
 
 import java.io.OutputStream;
 import java.io.Writer;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openjdk.jmh.annotations.OutputTimeUnit;
@@ -18,7 +17,7 @@ public class DZoneWriteJsonIO extends DZoneTestBase
     public DZoneWriteJsonIO() { }
 
     @Override
-    public int _writeItems(List<MeasurementRecord> items, OutputStream out) throws Exception
+    public int _writeItems(MeasurementPOJO items, OutputStream out) throws Exception
     {
         JsonWriter w = new JsonWriter(out);
         w.write(items);
@@ -27,7 +26,7 @@ public class DZoneWriteJsonIO extends DZoneTestBase
     }
     
     @Override
-    public int _writeItems(List<MeasurementRecord> items, Writer out) throws Exception
+    public int _writeItems(MeasurementPOJO items, Writer out) throws Exception
     {
         /* 05-Aug-2015, tatu: Looks like json-io does not expose option to write JSON via
          *    java.io.Writer. Because of this, we have to choose one of alternatives, and
@@ -43,7 +42,7 @@ public class DZoneWriteJsonIO extends DZoneTestBase
     }
 
     @Override
-    public String _writeAsString(List<MeasurementRecord> items) throws Exception {
+    public String _writeAsString(MeasurementPOJO items) throws Exception {
         return JsonWriter.objectToJson(items);
     }
 }

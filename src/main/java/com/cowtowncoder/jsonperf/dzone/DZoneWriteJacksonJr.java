@@ -2,42 +2,45 @@ package com.cowtowncoder.jsonperf.dzone;
 
 import java.io.OutputStream;
 import java.io.Writer;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
+import com.fasterxml.jackson.jr.ob.JSON;
 
+/**
+ * Test codec for Jackson jr (https://github.com/FasterXML/jackson-jr)
+ */
 @State(Scope.Thread)
 @OutputTimeUnit(TimeUnit.SECONDS)
-public class DZoneWriteJackson extends DZoneTestBase
+public class DZoneWriteJacksonJr extends DZoneTestBase
 {
-    protected final ObjectWriter objectWriter;
+    protected final JSON json;
     
-    public DZoneWriteJackson()
+    public DZoneWriteJacksonJr()
     {
-        objectWriter = new ObjectMapper().writerFor(MeasurementPOJO.class);
+        json = JSON.std;
     }
 
     @Override
     public int _writeItems(MeasurementPOJO items, OutputStream out) throws Exception
     {
-        objectWriter.writeValue(out, items);
+        json.write(items, out);
         return items.size();
     }
 
     @Override
     public int _writeItems(MeasurementPOJO items, Writer out) throws Exception
     {
-        objectWriter.writeValue(out, items);
+        json.write(items, out);
         return items.size();
     }
 
     @Override
     public String _writeAsString(MeasurementPOJO items) throws Exception {
-        return objectWriter.writeValueAsString(items);
+        return json.asString(items);
     }
 }

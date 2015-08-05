@@ -2,6 +2,11 @@ package com.cowtowncoder.jsonperf.dzone;
 
 import java.util.*;
 
+/**
+ * Main test item. Contains both fields and getters/setters, given that different
+ * libraries access data in different ways: some require fields (Gson at least),
+ * others getters/setters (Jackson jr); others work with either (Jackson)
+ */
 public class MeasurementRecord
 {
     public String measurementId;
@@ -22,10 +27,14 @@ public class MeasurementRecord
         this.type = type;
     }
 
-    public enum MeasurementType {
-        WEB_REQUEST,SQL,EXCEPTION,METHOD_CALL
-    }
+    public String getMeasurementId() { return measurementId; }
+    public long getDuration() { return duration; }
+    public long getTime() { return time; }
 
+    public void setMeasurementId(String s) { measurementId = s; }
+    public void setDuration(Long l) { duration = l; }
+    public void setTime(long l) { time = l; }
+    
     public static List<MeasurementRecord> construct(int count)
     {
         List<MeasurementRecord> result = new ArrayList<>(count);

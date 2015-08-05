@@ -2,7 +2,6 @@ package com.cowtowncoder.jsonperf.dzone;
 
 import java.io.OutputStream;
 import java.io.Writer;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openjdk.jmh.annotations.Benchmark;
@@ -19,9 +18,9 @@ import com.cowtowncoder.jsonperf.util.NopWriter;
  */
 abstract class DZoneTestBase
 {
-    protected final static List<MeasurementRecord> list10 = MeasurementRecord.construct(10);
-    protected final static List<MeasurementRecord> list1000 = MeasurementRecord.construct(1000);
-    protected final static List<MeasurementRecord> list100000 = MeasurementRecord.construct(100000);
+    protected final static MeasurementPOJO list10 = new MeasurementPOJO(MeasurementRecord.construct(10));
+    protected final static MeasurementPOJO list1000 = new MeasurementPOJO(MeasurementRecord.construct(1000));
+    protected final static MeasurementPOJO list100000 = new MeasurementPOJO(MeasurementRecord.construct(100000));
 
     // These are reusable, thread-safe; reuse to minimize overhead
 
@@ -30,11 +29,11 @@ abstract class DZoneTestBase
 
     // // // Abstract methods for sub-classes
     
-    public abstract int _writeItems(List<MeasurementRecord> items, Writer out) throws Exception;
+    public abstract int _writeItems(MeasurementPOJO items, Writer out) throws Exception;
 
-    public abstract int _writeItems(List<MeasurementRecord> items, OutputStream out) throws Exception;
+    public abstract int _writeItems(MeasurementPOJO items, OutputStream out) throws Exception;
     
-    public abstract String _writeAsString(List<MeasurementRecord> items) throws Exception;
+    public abstract String _writeAsString(MeasurementPOJO items) throws Exception;
 
     // // // Using OutputStream
 

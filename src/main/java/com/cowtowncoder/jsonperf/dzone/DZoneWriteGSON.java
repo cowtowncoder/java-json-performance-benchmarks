@@ -1,7 +1,6 @@
 package com.cowtowncoder.jsonperf.dzone;
 
 import java.io.*;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openjdk.jmh.annotations.OutputTimeUnit;
@@ -23,7 +22,7 @@ public class DZoneWriteGSON extends DZoneTestBase
     }
 
     @Override
-    public int _writeItems(List<MeasurementRecord> items, OutputStream out) throws Exception
+    public int _writeItems(MeasurementPOJO items, OutputStream out) throws Exception
     {
         // Alas, GSON does not have direct/native method for OutputStream, use JDK wrapper
         gson.toJson(items, new OutputStreamWriter(out, "UTF-8"));
@@ -31,14 +30,14 @@ public class DZoneWriteGSON extends DZoneTestBase
     }
 
     @Override
-    public int _writeItems(List<MeasurementRecord> items, Writer out) throws Exception
+    public int _writeItems(MeasurementPOJO items, Writer out) throws Exception
     {
         gson.toJson(items, out);
         return items.size();
     }
 
     @Override
-    public String _writeAsString(List<MeasurementRecord> items) throws Exception {
+    public String _writeAsString(MeasurementPOJO items) throws Exception {
         return gson.toJson(items);
     }
 }
