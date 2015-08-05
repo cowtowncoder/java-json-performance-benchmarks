@@ -7,6 +7,8 @@ Benchmarks exercise JSON reading and/or writing performance of a few popular Jav
 * [GSON](https://github.com/google/gson)
 * [Jackson](https://github.com/FasterXML/jackson)
     * Also: lighter-weight [Jackson-jr](https://github.com/FasterXML/jackson-jr)
+* [Johnzon](http://johnzon.incubator.apache.org/)
+    * pre-1.0, incubation release
 * [json-io](https://github.com/jdereg/json-io)
 * [Moshi](https://github.com/square/moshi): Android-optimized lib (by some of GSON authors)
 
@@ -70,6 +72,8 @@ But to give some idea of typical results, here are samples I get running tests o
 
 ### DZone write tests
 
+Results as reported on console, except sorted in descending order of performance (fastest first)
+
 #### 1000 item list, as String
 
 ```
@@ -78,13 +82,12 @@ But to give some idea of typical results, here are samples I get running tests o
 # Run complete. Total time: 00:04:16
 
 Benchmark                           Mode  Cnt     Score    Error  Units
-DZoneWriteJacksonJr.write1kAsString  thrpt   45  4996.359 ± 58.990  ops/s
-DZoneWriteJackson.write1kAsString    thrpt   45  4343.665 ± 52.896  ops/s
-DZoneWriteMoshi.write1kAsString      thrpt   45  1650.772 ± 13.865  ops/s
-DZoneWriteGSON.write1kAsString       thrpt   45  1213.553 ± 16.406  ops/s
-DZoneWriteJsonIO.write1kAsString     thrpt   45   887.466 ±  6.372  ops/s
+DZoneWriteJacksonJr.write1kAsString  thrpt   45  5037.443 ± 44.501  ops/s
+DZoneWriteJackson.write1kAsString    thrpt   45  4334.441 ± 51.239  ops/s
+DZoneWriteJohnzon.write1kAsString    thrpt   45  2528.469 ± 35.468  ops/s
+DZoneWriteMoshi.write1kAsString      thrpt   45  1663.279 ± 18.857  ops/s
+DZoneWriteGSON.write1kAsString       thrpt   45  1208.538 ±  8.106  ops/s
+DZoneWriteJsonIO.write1kAsString     thrpt   45   886.542 ±  7.426  ops/s
 ```
 
-Given that the test measures throughput, Jackson is about 5x as fast as json.io for this test.
-
-
+Given that the test measures throughput, Jackson-jr (the fastest) is about 5x as fast as json.io (the slowest) for this test.
