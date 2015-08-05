@@ -103,6 +103,25 @@
 		  <artifactId>json-io</artifactId>
 		  <version>4.1.6</version>
 	  </dependency>
+
+      <!-- Apache Johnzon still experimental, but try it out -->
+      <dependency>
+        <groupId>org.apache.johnzon</groupId>
+        <artifactId>johnzon-core</artifactId>
+        <version>0.8-incubating</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.johnzon</groupId>
+        <artifactId>johnzon-mapper</artifactId>
+        <version>0.8-incubating</version>
+      </dependency>
+      <!--  also requires "json-p" API -->
+      <dependency>
+       <groupId>org.apache.geronimo.specs</groupId>
+       <artifactId>geronimo-json_1.0_spec</artifactId>
+       <version>1.0-alpha-1</version>
+    </dependency>
+
     </dependencies>
 
     <build>
