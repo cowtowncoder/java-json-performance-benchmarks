@@ -2,11 +2,16 @@
 
 This project contains a set of performance micro-benchmarks, based on excellent
 [JMH](http://openjdk.java.net/projects/code-tools/jmh/) package.
-Benchmarks exercise JSON reading and/or writing performance of a few popular Java JSON libraries:
+Benchmarks exercise JSON reading and/or writing performance,
+using widely-used, popular Java JSON libraries like:
 
 * [GSON](https://github.com/google/gson)
 * [Jackson](https://github.com/FasterXML/jackson)
     * Also: lighter-weight [Jackson-jr](https://github.com/FasterXML/jackson-jr)
+
+as well as some of newer Java JSON library options:
+
+* [Boon](https://github.com/boonproject/boon/wiki/Boon-JSON-in-five-minutes)
 * [Johnzon](http://johnzon.incubator.apache.org/)
     * pre-1.0, incubation release
 * [json-io](https://github.com/jdereg/json-io)
@@ -77,17 +82,18 @@ Results as reported on console, except sorted in descending order of performance
 #### 1000 item list, as String
 
 ```
-% java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneWrite.*write1kAsString" -wi 4 -i 5 -f 9
+% java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneWrite.*write1k.*AsString.*" -wi 4 -i 5 -f 19
 
-# Run complete. Total time: 00:04:16
+# Run complete. Total time: 00:20:58
 
-Benchmark                           Mode  Cnt     Score    Error  Units
-DZoneWriteJacksonJr.write1kAsString  thrpt   45  5037.443 ± 44.501  ops/s
-DZoneWriteJackson.write1kAsString    thrpt   45  4334.441 ± 51.239  ops/s
-DZoneWriteJohnzon.write1kAsString    thrpt   45  2528.469 ± 35.468  ops/s
-DZoneWriteMoshi.write1kAsString      thrpt   45  1663.279 ± 18.857  ops/s
-DZoneWriteGSON.write1kAsString       thrpt   45  1208.538 ±  8.106  ops/s
-DZoneWriteJsonIO.write1kAsString     thrpt   45   886.542 ±  7.426  ops/s
+Benchmark                             Mode  Cnt     Score    Error  Units
+DZoneWriteJacksonJr.write1kAsString  thrpt   95  5060.624 ± 32.975  ops/s
+DZoneWriteJackson.write1kAsString    thrpt   95  4377.870 ± 22.375  ops/s
+DZoneWriteBoon.write1kAsString       thrpt   95  2614.780 ± 15.105  ops/s
+DZoneWriteJohnzon.write1kAsString    thrpt   95  2531.030 ± 16.696  ops/s
+DZoneWriteMoshi.write1kAsString      thrpt   95  1655.735 ±  9.793  ops/s
+DZoneWriteGSON.write1kAsString       thrpt   95  1209.408 ± 10.565  ops/s
+DZoneWriteJsonIO.write1kAsString     thrpt   95   883.185 ±  7.002  ops/s
 ```
 
 Given that the test measures throughput, Jackson-jr (the fastest) is about 5x as fast as json.io (the slowest) for this test.
