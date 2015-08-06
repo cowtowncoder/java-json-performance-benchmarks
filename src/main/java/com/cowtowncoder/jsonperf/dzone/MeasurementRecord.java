@@ -30,11 +30,13 @@ public class MeasurementRecord
     public String getMeasurementId() { return measurementId; }
     public long getDuration() { return duration; }
     public long getTime() { return time; }
+    public MeasurementType getType() { return type; }
 
     public void setMeasurementId(String s) { measurementId = s; }
     public void setDuration(Long l) { duration = l; }
     public void setTime(long l) { time = l; }
-    
+    public void setType(MeasurementType t) { type = t; }
+
     public static List<MeasurementRecord> construct(int count)
     {
         List<MeasurementRecord> result = new ArrayList<>(count);
