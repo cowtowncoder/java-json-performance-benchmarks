@@ -64,6 +64,10 @@ the idea being that different types of output incur different kinds and amounts 
 For example, aggregating output as a `java.lang.String` requires much more memory allocation and (indirectly) more Garbage Collection for discarded JSON Strings.
 Conversely libraries are optimized differently for different types of output targets; some implement native output for all targets and others only have one basic target.
 
+Size of each POJO is quite small; field names are long and values mostly numbers.
+This may not be the most commonly found kind of content, but was used by the original set up
+and is used here unmodified.
+
 To run the test with a List of 10 items, serializing results as a Java String, you could use:
 
     java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneWrite.*write10AsString" -wi 4 -i 5 -f 9
@@ -87,13 +91,13 @@ Results as reported on console, except sorted in descending order of performance
 # Run complete. Total time: 00:20:58
 
 Benchmark                             Mode  Cnt     Score    Error  Units
-DZoneWriteJacksonJr.write1kAsString  thrpt   95  5060.624 ± 32.975  ops/s
 DZoneWriteJackson.write1kAsString    thrpt   95  4377.870 ± 22.375  ops/s
+DZoneWriteJacksonJr.write1kAsString  thrpt   95  3880.734 ± 32.488  ops/s
 DZoneWriteBoon.write1kAsString       thrpt   95  2614.780 ± 15.105  ops/s
-DZoneWriteJohnzon.write1kAsString    thrpt   95  2531.030 ± 16.696  ops/s
+DZoneWriteJohnzon.write1kAsString    thrpt   95  2088.878 ± 12.612  ops/s
 DZoneWriteMoshi.write1kAsString      thrpt   95  1655.735 ±  9.793  ops/s
 DZoneWriteGSON.write1kAsString       thrpt   95  1209.408 ± 10.565  ops/s
 DZoneWriteJsonIO.write1kAsString     thrpt   95   883.185 ±  7.002  ops/s
 ```
 
-Given that the test measures throughput, Jackson-jr (the fastest) is about 5x as fast as json.io (the slowest) for this test.
+Given that the test measures throughput, Jackson (the fastest) is about 5x as fast as json.io (the slowest) for this test.
