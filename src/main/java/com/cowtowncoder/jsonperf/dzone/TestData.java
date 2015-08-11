@@ -2,18 +2,18 @@ package com.cowtowncoder.jsonperf.dzone;
 
 public class TestData
 {
-    protected final static MeasurementPOJO list10 = new MeasurementPOJO(MeasurementRecord.construct(10));
-    protected final static MeasurementPOJO list1000 = new MeasurementPOJO(MeasurementRecord.construct(1000));
-    protected final static MeasurementPOJO list100000 = new MeasurementPOJO(MeasurementRecord.construct(100000));
+    public final static MeasurementPOJO list10 = new MeasurementPOJO(MeasurementRecord.construct(10));
+    public final static MeasurementPOJO list1000 = new MeasurementPOJO(MeasurementRecord.construct(1000));
+    public final static MeasurementPOJO list100000 = new MeasurementPOJO(MeasurementRecord.construct(100000));
 
     public static class Input {
-        protected final static String list10String;
-        protected final static String list1000String;
-        protected final static String list100000String;
+        public final static String list10String;
+        public final static String list1000String;
+        public final static String list100000String;
 
-        protected final static byte[] list10Bytes;
-        protected final static byte[] list1000Bytes;
-        protected final static byte[] list100000Bytes;
+        public final static byte[] list10Bytes;
+        public final static byte[] list1000Bytes;
+        public final static byte[] list100000Bytes;
 
         // Bit problematic no matter how we choose; but let's use Gson here
         // to try to reduc

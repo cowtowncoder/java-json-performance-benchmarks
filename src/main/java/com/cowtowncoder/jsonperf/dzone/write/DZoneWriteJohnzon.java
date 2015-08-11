@@ -1,4 +1,4 @@
-package com.cowtowncoder.jsonperf.dzone;
+package com.cowtowncoder.jsonperf.dzone.write;
 
 import java.io.*;
 import java.util.concurrent.TimeUnit;
@@ -6,8 +6,9 @@ import java.util.concurrent.TimeUnit;
 import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
-
 import org.apache.johnzon.mapper.*;
+
+import com.cowtowncoder.jsonperf.dzone.MeasurementPOJO;
 
 @State(Scope.Thread)
 @OutputTimeUnit(TimeUnit.SECONDS)

@@ -1,43 +1,43 @@
-package com.cowtowncoder.jsonperf.dzone;
+package com.cowtowncoder.jsonperf.dzone.write;
 
 import java.io.*;
 import java.util.concurrent.TimeUnit;
 
+import org.boon.json.JsonFactory;
+import org.boon.json.ObjectMapper;
 import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.cowtowncoder.jsonperf.dzone.MeasurementPOJO;
 
 @State(Scope.Thread)
 @OutputTimeUnit(TimeUnit.SECONDS)
-public class DZoneWriteGSON extends DZoneWriteTestBase
+public class DZoneWriteBoon extends DZoneWriteTestBase
 {
-    protected final Gson gson;
+    protected final ObjectMapper mapper;
 
-    public DZoneWriteGSON()
+    public DZoneWriteBoon()
     {
-        gson = new GsonBuilder().create();
+        mapper =  JsonFactory.create();
     }
 
     @Override
     public int _writeItems(MeasurementPOJO items, OutputStream out) throws Exception
     {
-        // Alas, GSON does not have direct/native method for OutputStream, use JDK wrapper
-        gson.toJson(items, new OutputStreamWriter(out, "UTF-8"));
+        mapper.writeValue(out, items);
         return items.size();
     }
 
     @Override
     public int _writeItems(MeasurementPOJO items, Writer out) throws Exception
     {
-        gson.toJson(items, out);
+        mapper.writeValue(out, items);
         return items.size();
     }
 
     @Override
     public String _writeAsString(MeasurementPOJO items) throws Exception {
-        return gson.toJson(items);
+        return mapper.writeValueAsString(items);
     }
 }

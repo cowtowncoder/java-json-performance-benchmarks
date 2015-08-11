@@ -1,4 +1,4 @@
-package com.cowtowncoder.jsonperf.dzone;
+package com.cowtowncoder.jsonperf.dzone.write;
 
 import java.io.*;
 import java.util.concurrent.TimeUnit;
@@ -7,6 +7,7 @@ import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 
+import com.cowtowncoder.jsonperf.dzone.MeasurementPOJO;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
 

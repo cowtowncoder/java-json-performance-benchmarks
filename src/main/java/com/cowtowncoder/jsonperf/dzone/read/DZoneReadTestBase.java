@@ -1,10 +1,13 @@
-package com.cowtowncoder.jsonperf.dzone;
+package com.cowtowncoder.jsonperf.dzone.read;
 
 import java.util.concurrent.TimeUnit;
 
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.infra.Blackhole;
+
+import com.cowtowncoder.jsonperf.dzone.MeasurementPOJO;
+import com.cowtowncoder.jsonperf.dzone.TestData;
 
 abstract class DZoneReadTestBase
 {

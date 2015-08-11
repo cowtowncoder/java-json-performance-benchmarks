@@ -1,4 +1,4 @@
-package com.cowtowncoder.jsonperf.dzone;
+package com.cowtowncoder.jsonperf.dzone.write;
 
 import java.io.OutputStream;
 import java.io.Writer;
@@ -8,6 +8,8 @@ import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.infra.Blackhole;
 
+import com.cowtowncoder.jsonperf.dzone.MeasurementPOJO;
+import com.cowtowncoder.jsonperf.dzone.TestData;
 import com.cowtowncoder.jsonperf.util.NopOutputStream;
 import com.cowtowncoder.jsonperf.util.NopWriter;
 

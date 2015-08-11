@@ -1,4 +1,4 @@
-package com.cowtowncoder.jsonperf.dzone;
+package com.cowtowncoder.jsonperf.dzone.write;
 
 import java.io.OutputStream;
 import java.io.Writer;
@@ -9,6 +9,7 @@ import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 
 import com.cedarsoftware.util.io.JsonWriter;
+import com.cowtowncoder.jsonperf.dzone.MeasurementPOJO;
 
 @State(Scope.Thread)
 @OutputTimeUnit(TimeUnit.SECONDS)

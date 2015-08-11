@@ -1,4 +1,4 @@
-package com.cowtowncoder.jsonperf.dzone;
+package com.cowtowncoder.jsonperf.dzone.read;
 
 import java.util.concurrent.TimeUnit;
 
@@ -6,16 +6,17 @@ import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 
+import com.cowtowncoder.jsonperf.dzone.MeasurementPOJO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 
 @State(Scope.Thread)
 @OutputTimeUnit(TimeUnit.SECONDS)
-public class DZoneReadJackson extends DZoneReadTestBase
+public class DZoneReadPojoJackson extends DZoneReadTestBase
 {
-    protected final ObjectReader objectReader;
+    private final ObjectReader objectReader;
 
-    public DZoneReadJackson()
+    public DZoneReadPojoJackson()
     {
         objectReader = new ObjectMapper().readerFor(MeasurementPOJO.class);
     }

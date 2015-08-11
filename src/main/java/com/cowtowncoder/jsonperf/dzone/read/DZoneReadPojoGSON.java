@@ -1,4 +1,4 @@
-package com.cowtowncoder.jsonperf.dzone;
+package com.cowtowncoder.jsonperf.dzone.read;
 
 import java.io.*;
 import java.util.concurrent.TimeUnit;
@@ -7,16 +7,17 @@ import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 
+import com.cowtowncoder.jsonperf.dzone.MeasurementPOJO;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 @State(Scope.Thread)
 @OutputTimeUnit(TimeUnit.SECONDS)
-public class DZoneReadGSON extends DZoneReadTestBase
+public class DZoneReadPojoGSON extends DZoneReadTestBase
 {
     protected final Gson gson;
 
-    public DZoneReadGSON()
+    public DZoneReadPojoGSON()
     {
         gson = new GsonBuilder().create();
     }
