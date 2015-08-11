@@ -12,7 +12,7 @@ import org.openjdk.jmh.annotations.State;
 
 @State(Scope.Thread)
 @OutputTimeUnit(TimeUnit.SECONDS)
-public class DZoneWriteBoon extends DZoneTestBase
+public class DZoneWriteBoon extends DZoneWriteTestBase
 {
     protected final ObjectMapper mapper;
 

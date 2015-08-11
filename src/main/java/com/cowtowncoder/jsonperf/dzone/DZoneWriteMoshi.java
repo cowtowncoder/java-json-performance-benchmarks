@@ -26,7 +26,7 @@ import com.squareup.moshi.Moshi;
  */
 @State(Scope.Thread)
 @OutputTimeUnit(TimeUnit.SECONDS)
-public class DZoneWriteMoshi extends DZoneTestBase
+public class DZoneWriteMoshi extends DZoneWriteTestBase
 {
     protected final JsonAdapter<MeasurementPOJO> adapter;
 

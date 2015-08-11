@@ -12,7 +12,7 @@ import com.cedarsoftware.util.io.JsonWriter;
 
 @State(Scope.Thread)
 @OutputTimeUnit(TimeUnit.SECONDS)
-public class DZoneWriteJsonIO extends DZoneTestBase
+public class DZoneWriteJsonIO extends DZoneWriteTestBase
 {
     public DZoneWriteJsonIO() { }
 

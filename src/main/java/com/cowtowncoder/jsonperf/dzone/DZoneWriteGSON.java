@@ -12,7 +12,7 @@ import com.google.gson.GsonBuilder;
 
 @State(Scope.Thread)
 @OutputTimeUnit(TimeUnit.SECONDS)
-public class DZoneWriteGSON extends DZoneTestBase
+public class DZoneWriteGSON extends DZoneWriteTestBase
 {
     protected final Gson gson;
 

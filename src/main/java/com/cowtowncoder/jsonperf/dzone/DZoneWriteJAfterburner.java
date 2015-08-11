@@ -10,16 +10,20 @@ import org.openjdk.jmh.annotations.State;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import com.fasterxml.jackson.module.afterburner.AfterburnerModule;
 
+// Jackson test, but using Afterburner module for extra speed!
 @State(Scope.Thread)
 @OutputTimeUnit(TimeUnit.SECONDS)
-public class DZoneWriteJackson extends DZoneWriteTestBase
+public class DZoneWriteJAfterburner extends DZoneWriteTestBase
 {
     protected final ObjectWriter objectWriter;
 
-    public DZoneWriteJackson()
+    public DZoneWriteJAfterburner()
     {
-        objectWriter = new ObjectMapper().writerFor(MeasurementPOJO.class);
+        ObjectMapper mapper = new ObjectMapper()
+            .registerModule(new AfterburnerModule());
+        objectWriter = mapper.writerFor(MeasurementPOJO.class);
     }
 
     @Override

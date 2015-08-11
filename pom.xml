@@ -65,13 +65,11 @@
       </dependency>
 
       <!-- may want to test Afterburner-enabled Jackson? -->
-      <!-- 
       <dependency>
         <groupId>com.fasterxml.jackson.module</groupId>
         <artifactId>jackson-module-afterburner</artifactId>
         <version>${version.jackson}</version>
       </dependency>
-      -->
 
 	  <!-- might as well test Jackson Jr -->
 

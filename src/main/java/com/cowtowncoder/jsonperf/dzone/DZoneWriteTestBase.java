@@ -16,11 +16,11 @@ import com.cowtowncoder.jsonperf.util.NopWriter;
  * <a href="https://dzone.com/articles/compare-json-api">DZone Jackson vs GSON</a>
  * test.
  */
-abstract class DZoneTestBase
+abstract class DZoneWriteTestBase
 {
-    protected final static MeasurementPOJO list10 = new MeasurementPOJO(MeasurementRecord.construct(10));
-    protected final static MeasurementPOJO list1000 = new MeasurementPOJO(MeasurementRecord.construct(1000));
-    protected final static MeasurementPOJO list100000 = new MeasurementPOJO(MeasurementRecord.construct(100000));
+    protected final static MeasurementPOJO list10 = TestData.list10;
+    protected final static MeasurementPOJO list1000 = TestData.list1000;
+    protected final static MeasurementPOJO list100000 = TestData.list100000;
 
     // These are reusable, thread-safe; reuse to minimize overhead
 

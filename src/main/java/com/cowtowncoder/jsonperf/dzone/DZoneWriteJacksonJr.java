@@ -16,7 +16,7 @@ import com.fasterxml.jackson.jr.ob.JSON;
  */
 @State(Scope.Thread)
 @OutputTimeUnit(TimeUnit.SECONDS)
-public class DZoneWriteJacksonJr extends DZoneTestBase
+public class DZoneWriteJacksonJr extends DZoneWriteTestBase
 {
     protected final JSON json;
     

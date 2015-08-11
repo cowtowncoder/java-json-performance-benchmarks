@@ -1,5 +1,6 @@
 package com.cowtowncoder.jsonperf.dzone;
 
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -46,5 +47,17 @@ public class MeasurementRecord
                     10, now+i, MeasurementType.WEB_REQUEST));
         }
         return result;
+    }
+
+    // quick and dirty; needed just to avoid having to use any of impls being
+    // tested
+    public void appendAsJSON(Appendable target) throws IOException
+    {
+        target.append(String.format("{\"measurementId\":\"%s\","
+                +"\"duration\":\"%d\","
+                +"\"time\":\"%d\","
+                +"\"type\":\"%s\"}",
+                measurementId, duration, time, type.name()
+                ));
     }
 }

@@ -11,7 +11,7 @@ import org.apache.johnzon.mapper.*;
 
 @State(Scope.Thread)
 @OutputTimeUnit(TimeUnit.SECONDS)
-public class DZoneWriteJohnzon extends DZoneTestBase
+public class DZoneWriteJohnzon extends DZoneWriteTestBase
 {
     protected final Mapper mapper;
 
