@@ -14,11 +14,11 @@ import com.cowtowncoder.jsonperf.dzone.MeasurementPOJO;
 
 @State(Scope.Thread)
 @OutputTimeUnit(TimeUnit.SECONDS)
-public class ZoneReadPojoJsonIO extends DZoneReadTestBase
+public class DZoneReadPojoJsonIO extends DZoneReadTestBase
 {
     private final static Map<String,Object> NO_ARGS = Collections.emptyMap();
 
-    public ZoneReadPojoJsonIO() { }
+    public DZoneReadPojoJsonIO() { }
 
     @Override
     public MeasurementPOJO _readItems(byte[] input) throws Exception {
