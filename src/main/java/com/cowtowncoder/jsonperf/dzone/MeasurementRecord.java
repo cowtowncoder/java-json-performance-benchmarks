@@ -54,8 +54,8 @@ public class MeasurementRecord
     public void appendAsJSON(Appendable target) throws IOException
     {
         target.append(String.format("{\"measurementId\":\"%s\","
-                +"\"duration\":\"%d\","
-                +"\"time\":\"%d\","
+                +"\"duration\":%d,"
+                +"\"time\":%d,"
                 +"\"type\":\"%s\"}",
                 measurementId, duration, time, type.name()
                 ));
