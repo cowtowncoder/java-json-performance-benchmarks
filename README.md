@@ -51,6 +51,7 @@ One can also argue whether serialization as String is a meanginful test (since i
 
 Test as implemented here relies on `jmh` to provide proper performance test setup, measurements, warmup, and to avoid common gotchas that plague naive Java performance tests.
 If not done so yet, you may want to read the longer explanation of [reasons to use JMH](http://psy-lob-saw.blogspot.com/2013/04/writing-java-micro-benchmarks-with-jmh.html).
+And for common problems with Java/JSON performance testing, you may want to read [On proper performance testing of Java JSON processing](http://www.cowtowncoder.com/blog/archives/2011/05/entry_455.html).
 
 ### Writing a List of POJOs
 
@@ -72,6 +73,16 @@ To run the test with a List of 10 items, serializing results as a Java String, y
 
     java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneWrite.*write10AsString" -wi 4 -i 5 -f 9
 
+or 1000 items into `OutputStream`
+
+    java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneWrite.*write1kUsingStream" -wi 4 -i 5 -f 9
+
+### Reading a List of POJOs
+
+Similar to writing, there are similar variations for reading JSON as POJOs:
+
+* `read10FromString` (and `read1kFromString`, `read100kFromString`): deserialization from `java.lang.String`
+* `read10FromBytes` (`read1kFromBytes`, `read100kFromBytes`): deserialization from given `byte[]`
 
 ## Sample results
 
@@ -79,11 +90,11 @@ Since results may vary significantly between different platforms and JVM version
 run benchmark on systems you are using.
 But to give some idea of typical results, here are samples I get running tests on my work laptop:
 
-### DZone write tests
+### DZone tests
 
 Results as reported on console, except sorted in descending order of performance (fastest first)
 
-#### 1000 item list, as String
+#### Writing 1000 item list as String
 
 ```
 % java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneWrite.*write1k.*AsString.*" -wi 4 -i 5 -f 19
@@ -101,3 +112,7 @@ DZoneWriteJsonIO.write1kAsString     thrpt   95   883.185 ±  7.002  ops/s
 ```
 
 Given that the test measures throughput, Jackson (the fastest) is about 5x as fast as json.io (the slowest) for this test.
+
+#### Reading 1000 item list from byte[]
+
+(to be run, included)
