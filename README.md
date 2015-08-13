@@ -115,4 +115,20 @@ Given that the test measures throughput, Jackson (the fastest) is about 5x as fa
 
 #### Reading 1000 item list from byte[]
 
-(to be run, included)
+```
+% java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneReadPojo.*read1k.*FromString.*" -wi 4 -i 5 -f 19
+
+# Run complete. Total time: 00:15:44
+
+Benchmark                                    Mode  Cnt     Score    Error  Units
+DZoneReadPojoJackson.read1kFromString       thrpt   95  2054.441 ± 17.860  ops/s
+DZoneReadPojoJacksonJr.read1kFromString     thrpt   95  2038.789 ± 18.323  ops/s
+DZoneReadPojoGSON.read1kFromString          thrpt   95  1393.893 ±  6.480  ops/s
+DZoneReadPojoMoshi.read1kFromString         thrpt   95   854.281 ±  2.740  ops/s
+```
+
+And in this case, Jackson is 50% faster than GSON, twice as fast as Moshi.
+
+Json-io is not (yet) included because it seems to require JSON content to be specifically written by `json-io`
+itself, and not accept standard json representation (probably since it requires type information embedded).
+
