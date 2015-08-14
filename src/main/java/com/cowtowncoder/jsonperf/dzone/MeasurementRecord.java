@@ -38,7 +38,7 @@ public class MeasurementRecord
 
     public void setMeasurementId(String s) { measurementId = s; }
     public void setType(MeasurementType t) { type = t; }
-    public void setDuration(Long l) { duration = l; }
+    public void setDuration(long l) { duration = l; }
     public void setTime(long l) { time = l; }
 
     public static List<MeasurementRecord> construct(int count)
