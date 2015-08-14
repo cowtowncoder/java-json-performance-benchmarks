@@ -13,11 +13,11 @@ import com.fasterxml.jackson.module.afterburner.AfterburnerModule;
 
 @State(Scope.Thread)
 @OutputTimeUnit(TimeUnit.SECONDS)
-public class DZoneReadPojoJAfterburner extends DZoneReadTestBase
+public class DZoneReadPojoJacksonAB extends DZoneReadTestBase
 {
     private final ObjectReader objectReader;
 
-    public DZoneReadPojoJAfterburner()
+    public DZoneReadPojoJacksonAB()
     {
         ObjectMapper mapper = new ObjectMapper()
             .registerModule(new AfterburnerModule());
