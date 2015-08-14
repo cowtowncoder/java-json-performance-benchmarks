@@ -19,7 +19,9 @@
 	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <version.jackson.annotations>2.6.0</version.jackson.annotations>
-        <version.jackson>2.6.1</version.jackson>
+        <version.jackson.core>2.6.1</version.jackson.core>
+        <version.jackson.jr>2.6.1</version.jackson.jr>
+        <version.jackson.afterburner>2.6.1</version.jackson.afterburner>
 
         <version.jmh>1.9.3</version.jmh>
     </properties>
@@ -55,20 +57,20 @@
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-core</artifactId>
-        <version>${version.jackson}</version>
+        <version>${version.jackson.core}</version>
       </dependency>
 
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-databind</artifactId>
-        <version>${version.jackson}</version>
+        <version>${version.jackson.core}</version>
       </dependency>
 
       <!-- may want to test Afterburner-enabled Jackson? -->
       <dependency>
         <groupId>com.fasterxml.jackson.module</groupId>
         <artifactId>jackson-module-afterburner</artifactId>
-        <version>${version.jackson}</version>
+        <version>${version.jackson.afterburner}</version>
       </dependency>
 
 	  <!-- might as well test Jackson Jr -->
@@ -76,7 +78,7 @@
       <dependency>
         <groupId>com.fasterxml.jackson.jr</groupId>
         <artifactId>jackson-jr-objects</artifactId>
-        <version>${version.jackson}</version>
+        <version>${version.jackson.jr}</version>
       </dependency>
 
       <!-- and GSON -->
