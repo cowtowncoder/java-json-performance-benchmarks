@@ -16,11 +16,11 @@ import com.fasterxml.jackson.module.afterburner.AfterburnerModule;
 // Jackson test, but using Afterburner module for extra speed!
 @State(Scope.Thread)
 @OutputTimeUnit(TimeUnit.SECONDS)
-public class DZoneWriteJAfterburner extends DZoneWriteTestBase
+public class DZoneWriteJacksonAB extends DZoneWriteTestBase
 {
     protected final ObjectWriter objectWriter;
 
-    public DZoneWriteJAfterburner()
+    public DZoneWriteJacksonAB()
     {
         ObjectMapper mapper = new ObjectMapper()
             .registerModule(new AfterburnerModule());
