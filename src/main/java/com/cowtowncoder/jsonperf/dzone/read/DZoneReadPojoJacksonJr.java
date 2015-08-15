@@ -11,7 +11,7 @@ import com.fasterxml.jackson.jr.ob.JSON;
 
 @State(Scope.Thread)
 @OutputTimeUnit(TimeUnit.SECONDS)
-public class DZoneReadPojoJacksonJr extends DZoneReadTestBase
+public class DZoneReadPojoJacksonJr extends DZoneReadTestBase<MeasurementPOJO>
 {
     protected final JSON json;
 

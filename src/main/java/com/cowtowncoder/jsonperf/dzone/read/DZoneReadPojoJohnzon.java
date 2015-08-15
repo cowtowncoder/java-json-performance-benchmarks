@@ -13,7 +13,7 @@ import com.cowtowncoder.jsonperf.dzone.MeasurementPOJO;
 
 @State(Scope.Thread)
 @OutputTimeUnit(TimeUnit.SECONDS)
-public class DZoneReadPojoJohnzon extends DZoneReadTestBase
+public class DZoneReadPojoJohnzon extends DZoneReadTestBase<MeasurementPOJO>
 {
     protected final Mapper mapper;
 

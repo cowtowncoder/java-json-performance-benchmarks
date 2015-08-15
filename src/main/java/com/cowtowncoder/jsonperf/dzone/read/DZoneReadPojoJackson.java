@@ -12,7 +12,7 @@ import com.fasterxml.jackson.databind.ObjectReader;
 
 @State(Scope.Thread)
 @OutputTimeUnit(TimeUnit.SECONDS)
-public class DZoneReadPojoJackson extends DZoneReadTestBase
+public class DZoneReadPojoJackson extends DZoneReadTestBase<MeasurementPOJO>
 {
     private final ObjectReader objectReader;
 

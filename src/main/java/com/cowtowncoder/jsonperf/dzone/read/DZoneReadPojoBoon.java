@@ -13,7 +13,7 @@ import org.boon.json.ObjectMapper;
 
 @State(Scope.Thread)
 @OutputTimeUnit(TimeUnit.SECONDS)
-public class DZoneReadPojoBoon extends DZoneReadTestBase
+public class DZoneReadPojoBoon extends DZoneReadTestBase<MeasurementPOJO>
 {
     protected final ObjectMapper mapper;
 

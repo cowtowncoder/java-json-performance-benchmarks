@@ -1,36 +1,33 @@
 package com.cowtowncoder.jsonperf.dzone.read;
 
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 
-import com.cowtowncoder.jsonperf.dzone.MeasurementPOJO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
-import com.fasterxml.jackson.module.afterburner.AfterburnerModule;
 
 @State(Scope.Thread)
 @OutputTimeUnit(TimeUnit.SECONDS)
-public class DZoneReadPojoJacksonAB extends DZoneReadTestBase<MeasurementPOJO>
+public class DZoneReadMapJackson extends DZoneReadTestBase<Map<Object,Object>>
 {
     private final ObjectReader objectReader;
 
-    public DZoneReadPojoJacksonAB()
+    public DZoneReadMapJackson()
     {
-        ObjectMapper mapper = new ObjectMapper()
-            .registerModule(new AfterburnerModule());
-        objectReader = mapper.readerFor(MeasurementPOJO.class);
+        objectReader = new ObjectMapper().readerFor(Map.class);
     }
 
     @Override
-    public MeasurementPOJO _readItems(byte[] input) throws Exception {
+    public Map<Object,Object> _readItems(byte[] input) throws Exception {
         return objectReader.readValue(input);
     }
 
     @Override
-    public MeasurementPOJO _readItems(String input) throws Exception {
+    public Map<Object,Object> _readItems(String input) throws Exception {
         return objectReader.readValue(input);
     }
 }

@@ -6,10 +6,9 @@ import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.infra.Blackhole;
 
-import com.cowtowncoder.jsonperf.dzone.MeasurementPOJO;
 import com.cowtowncoder.jsonperf.dzone.TestData;
 
-abstract class DZoneReadTestBase
+abstract class DZoneReadTestBase<T>
 {
     protected final static byte[] list10b = TestData.Input.list10Bytes;
     protected final static byte[] list1000b = TestData.Input.list1000Bytes;
@@ -21,8 +20,8 @@ abstract class DZoneReadTestBase
 
     // // // Abstract methods for sub-classes
 
-    public abstract MeasurementPOJO _readItems(byte[] input) throws Exception;
-    public abstract MeasurementPOJO _readItems(String input) throws Exception;
+    public abstract T _readItems(byte[] input) throws Exception;
+    public abstract T _readItems(String input) throws Exception;
 
     // // // Using OutputStream
 
