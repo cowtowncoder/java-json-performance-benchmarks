@@ -43,7 +43,7 @@ All options are explained by jmh documentation; an easy way to see options avail
 
     java -jar target/microbenchmarks.jar -h
 
-## Write Tests inspired by Dzone article
+## Tests inspired by Dzone article
 
 Following tests were written inspired by a [DZone Java Performance](https://t.co/10lR0tQJjV] article.
 The original tests had many unfortunate problems; starting with the fact that it does not perform proper warmup, nor run long enough to give statistically meaning results.
@@ -79,10 +79,18 @@ or 1000 items into `OutputStream`
 
 ### Reading a List of POJOs
 
-Similar to writing, there are similar variations for reading JSON as POJOs:
+Similar to writing, there are similar variations for reading JSON as POJOs.
+These tests are named like `DZoneReadPojoJackson`:
 
 * `read10FromString` (and `read1kFromString`, `read100kFromString`): deserialization from `java.lang.String`
 * `read10FromBytes` (`read1kFromBytes`, `read100kFromBytes`): deserialization from given `byte[]`
+
+But in addition, there are also alternatives for reading same JSON as "untyped" values; that is, as `java.util.Map`s, `java.util.List`s, `String`s, `Number`s and `Boolean`s:
+
+* `read10FromString` (and `read1kFromString`, `read100kFromString`): deserialization from `java.lang.String`
+* `read10FromBytes` (`read1kFromBytes`, `read100kFromBytes`): deserialization from given `byte[]`
+
+and the difference is from naming tests classes like `DZoneReadMapJackson` (replacing `POJO` with `Map`); test names are the same.
 
 ## Sample results
 
@@ -133,3 +141,18 @@ And in this case, Jackson is 50% faster than GSON, twice as fast as Moshi and tr
 
 Json-io is not (yet) included because it seems to require JSON content to be specifically written by `json-io`
 itself, and not accept standard json representation (probably since it requires type information embedded).
+
+#### Reading items as "untyped" (`Map`) from String
+
+Benchmark                                Mode  Cnt     Score    Error  Units
+DZoneReadMapBoon.read1kFromString       thrpt   95  4908.977 ± 64.932  ops/s
+DZoneReadMapJacksonJr.read1kFromString  thrpt   95  2444.146 ± 27.406  ops/s
+DZoneReadMapJackson.read1kFromString    thrpt   95  2116.899 ± 25.963  ops/s
+DZoneReadMapGSON.read1kFromString       thrpt   95  1687.396 ± 17.711  ops/s
+DZoneReadMapJsonMoshi.read1kFromString  thrpt   95   886.267 ±  5.675  ops/s
+DZoneReadMapJohnzon.read1kFromString    thrpt   95   763.741 ±  8.208  ops/s
+DZoneReadMapJsonIO.read1kFromString     thrpt   95   329.130 ±  6.042  ops/s
+
+In this test, `Boon` is the somewhat surprising winner, and by clear margin: twice as fast as the
+second contestant `jackson-jr`.
+Boon seems to specifically optimized for the combination of "untyped" (Lists, Maps) result, and use of `String` as input.
