@@ -124,17 +124,17 @@ Given that the test measures throughput, Jackson (the fastest) is about 5x as fa
 #### Reading 1000 item (POJO) list from String
 
 ```
-% java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneReadPojo.*read1k.*FromString.*" -wi 4 -i 5 -f 19
+% java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneReadPojo.*read10FromString.*" -wi 4 -i 5 -f 9
 
-# Run complete. Total time: 00:15:44
+# Run complete. Total time: 00:10:27
 
-Benchmark                                 Mode  Cnt     Score    Error  Units
-DZoneReadPojoJackson.read1kFromString    thrpt   95  2283.530 ± 15.011  ops/s
-DZoneReadPojoJacksonJr.read1kFromString  thrpt   95  2247.371 ± 15.732  ops/s
-DZoneReadPojoBoon.read1kFromString       thrpt   95  1934.645 ± 58.358  ops/s
-DZoneReadPojoGSON.read1kFromString       thrpt   95  1535.834 ± 14.694  ops/s
-DZoneReadPojoMoshi.read1kFromString      thrpt   95   918.641 ±  9.411  ops/s
-DZoneReadPojoJohnzon.read1kFromString    thrpt   95   746.234 ±  3.917  ops/s
+Benchmark                                 Mode  Cnt       Score      Error  Units
+DZoneReadPojoJacksonJr.read10FromString  thrpt   45  217944.421 ± 3606.032  ops/s
+DZoneReadPojoJackson.read10FromString    thrpt   45  215162.661 ± 3699.385  ops/s
+DZoneReadPojoGSON.read10FromString       thrpt   45  143185.788 ± 3431.425  ops/s
+DZoneReadPojoBoon.read10FromString       thrpt   45  118542.144 ± 1747.026  ops/s
+DZoneReadPojoMoshi.read10FromString      thrpt   45   92379.201 ± 1415.529  ops/s
+DZoneReadPojoJohnzon.read10FromString    thrpt   45   74268.988 ± 1505.027  ops/s
 ```
 
 And in this case, Jackson is 50% faster than GSON, twice as fast as Moshi and triple Johnzon speed.
@@ -142,17 +142,23 @@ And in this case, Jackson is 50% faster than GSON, twice as fast as Moshi and tr
 Json-io is not (yet) included because it seems to require JSON content to be specifically written by `json-io`
 itself, and not accept standard json representation (probably since it requires type information embedded).
 
-#### Reading items as "untyped" (`Map`) from String
+#### Reading 10 items as "untyped" (`Map`) from String
 
-Benchmark                                Mode  Cnt     Score    Error  Units
-DZoneReadMapBoon.read1kFromString       thrpt   95  4908.977 ± 64.932  ops/s
-DZoneReadMapJacksonJr.read1kFromString  thrpt   95  2444.146 ± 27.406  ops/s
-DZoneReadMapJackson.read1kFromString    thrpt   95  2116.899 ± 25.963  ops/s
-DZoneReadMapGSON.read1kFromString       thrpt   95  1687.396 ± 17.711  ops/s
-DZoneReadMapJsonMoshi.read1kFromString  thrpt   95   886.267 ±  5.675  ops/s
-DZoneReadMapJohnzon.read1kFromString    thrpt   95   763.741 ±  8.208  ops/s
-DZoneReadMapJsonIO.read1kFromString     thrpt   95   329.130 ±  6.042  ops/s
+% java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneReadMap.*read10FromString.*" -wi 4 -i 5 -f 9
 
-In this test, `Boon` is the somewhat surprising winner, and by clear margin: twice as fast as the
-second contestant `jackson-jr`.
-Boon seems to specifically optimized for the combination of "untyped" (Lists, Maps) result, and use of `String` as input.
+# Run complete. Total time: 00:10:26
+
+Benchmark                                Mode  Cnt       Score      Error  Units
+DZoneReadMapJacksonJr.read10FromString  thrpt   45  233240.208 ± 2844.701  ops/s
+DZoneReadMapBoon.read10FromString       thrpt   45  216714.713 ± 2328.799  ops/s
+DZoneReadMapJackson.read10FromString    thrpt   45  197597.668 ± 2092.722  ops/s
+DZoneReadMapGSON.read10FromString       thrpt   45  154916.876 ± 1355.639  ops/s
+DZoneReadMapJohnzon.read10FromString    thrpt   45   75610.515 ±  469.744  ops/s
+DZoneReadMapJsonIO.read10FromString     thrpt   45   28445.343 ±  279.304  ops/s
+DZoneReadMapJsonMoshi.read10FromString  thrpt   45   86168.309 ± 1428.668  ops/s
+
+In this test, `Boon` has performance slightly exceeding standard Jackson (and only slightly
+below `jackson-jr`); GSON coming in relatively close, and other options being significantly
+slower.
+
+Boon seems to specifically optimized for the combination of "untyped" (Lists, Maps) result, and use of `String` as input. In fact, with bigger input size, `Boon` is the fastest library.
