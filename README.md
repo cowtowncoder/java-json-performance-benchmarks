@@ -113,22 +113,23 @@ DZoneWriteJsonIO.write1kAsString     thrpt   95   883.185 ±  7.002  ops/s
 
 Given that the test measures throughput, Jackson (the fastest) is about 5x as fast as json.io (the slowest) for this test.
 
-#### Reading 1000 item list from byte[]
+#### Reading 1000 item (POJO) list from String
 
 ```
 % java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneReadPojo.*read1k.*FromString.*" -wi 4 -i 5 -f 19
 
 # Run complete. Total time: 00:15:44
 
-Benchmark                                    Mode  Cnt     Score    Error  Units
-DZoneReadPojoJackson.read1kFromString       thrpt   95  2054.441 ± 17.860  ops/s
-DZoneReadPojoJacksonJr.read1kFromString     thrpt   95  2038.789 ± 18.323  ops/s
-DZoneReadPojoGSON.read1kFromString          thrpt   95  1393.893 ±  6.480  ops/s
-DZoneReadPojoMoshi.read1kFromString         thrpt   95   854.281 ±  2.740  ops/s
+Benchmark                                 Mode  Cnt     Score    Error  Units
+DZoneReadPojoJackson.read1kFromString    thrpt   95  2283.530 ± 15.011  ops/s
+DZoneReadPojoJacksonJr.read1kFromString  thrpt   95  2247.371 ± 15.732  ops/s
+DZoneReadPojoBoon.read1kFromString       thrpt   95  1934.645 ± 58.358  ops/s
+DZoneReadPojoGSON.read1kFromString       thrpt   95  1535.834 ± 14.694  ops/s
+DZoneReadPojoMoshi.read1kFromString      thrpt   95   918.641 ±  9.411  ops/s
+DZoneReadPojoJohnzon.read1kFromString    thrpt   95   746.234 ±  3.917  ops/s
 ```
 
-And in this case, Jackson is 50% faster than GSON, twice as fast as Moshi.
+And in this case, Jackson is 50% faster than GSON, twice as fast as Moshi and triple Johnzon speed.
 
 Json-io is not (yet) included because it seems to require JSON content to be specifically written by `json-io`
 itself, and not accept standard json representation (probably since it requires type information embedded).
-
