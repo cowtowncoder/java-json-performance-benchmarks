@@ -19,9 +19,9 @@
 	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <version.jackson.annotations>2.6.0</version.jackson.annotations>
-        <version.jackson.core>2.6.1</version.jackson.core>
-        <version.jackson.jr>2.6.1</version.jackson.jr>
-        <version.jackson.afterburner>2.6.1</version.jackson.afterburner>
+        <version.jackson.core>2.6.2</version.jackson.core>
+        <version.jackson.jr>2.6.2</version.jackson.jr>
+        <version.jackson.afterburner>2.6.2</version.jackson.afterburner>
 
         <version.jmh>1.9.3</version.jmh>
     </properties>
