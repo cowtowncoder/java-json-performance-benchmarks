@@ -19,11 +19,11 @@
 	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <version.jackson.annotations>2.6.0</version.jackson.annotations>
-        <version.jackson.core>2.6.2</version.jackson.core>
-        <version.jackson.jr>2.6.2</version.jackson.jr>
-        <version.jackson.afterburner>2.6.2</version.jackson.afterburner>
+        <version.jackson.core>2.6.4</version.jackson.core>
+        <version.jackson.jr>${version.jackson.core}</version.jackson.jr>
+        <version.jackson.afterburner>${version.jackson.core}</version.jackson.afterburner>
 
-        <version.jmh>1.9.3</version.jmh>
+        <version.jmh>1.10.5</version.jmh>
     </properties>
 
     <dependencies>
@@ -86,22 +86,22 @@
       <dependency>
         <groupId>com.google.code.gson</groupId>
         <artifactId>gson</artifactId>
-        <version>2.3.1</version>
+        <version>2.5</version>
       </dependency>
       
       <!--  Moshi, by some of same folks as GSON -->
-	  <dependency>
-		<groupId>com.squareup.moshi</groupId>
-		<artifactId>moshi</artifactId>
-		<version>0.9.0</version>
-	  </dependency>
+      <dependency>
+	<groupId>com.squareup.moshi</groupId>
+	<artifactId>moshi</artifactId>
+	<version>0.9.0</version>
+      </dependency>
 
       <!--  and Json.io from https://github.com/jdereg/json-io -->
-	  <dependency>
-		  <groupId>com.cedarsoftware</groupId>
-		  <artifactId>json-io</artifactId>
-		  <version>4.1.6</version>
-	  </dependency>
+      <dependency>
+	<groupId>com.cedarsoftware</groupId>
+	<artifactId>json-io</artifactId>
+	<version>4.1.6</version>
+      </dependency>
 
       <!-- Apache Johnzon still experimental, but try it out -->
       <dependency>
@@ -112,7 +112,7 @@
       <dependency>
         <groupId>org.apache.johnzon</groupId>
         <artifactId>johnzon-mapper</artifactId>
-        <version>0.8-incubating</version>
+        <version>0.9.2-incubating</version>
       </dependency>
       <!--  also requires "json-p" API -->
       <dependency>
@@ -126,6 +126,13 @@
         <groupId>io.fastjson</groupId>
         <artifactId>boon</artifactId>
         <version>0.33</version>
+      </dependency>
+
+      <!-- and yet another "simple, fast" contestant, json-parser -->
+      <dependency>
+        <groupId>ca.fuzzlesoft</groupId>
+        <artifactId>json-parse</artifactId>
+        <version>1.0.0</version>
       </dependency>
 
     </dependencies>
