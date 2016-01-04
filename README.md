@@ -15,6 +15,7 @@ as well as some of newer Java JSON library options:
 * [Johnzon](http://johnzon.incubator.apache.org/)
     * pre-1.0, incubation release
 * [json-io](https://github.com/jdereg/json-io)
+* [json-parse](https://github.com/mitchhentges/json-parse)
 * [Moshi](https://github.com/square/moshi): Android-optimized lib (by some of GSON authors)
 
 The criteria for inclusion here is that for a library to be included it should
