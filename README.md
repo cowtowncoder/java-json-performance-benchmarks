@@ -145,6 +145,7 @@ itself, and not accept standard json representation (probably since it requires 
 
 #### Reading 10 items as "untyped" (`Map`) from String
 
+```
 % java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneReadMap.*read10FromString.*" -wi 4 -i 5 -f 9
 
 # Run complete. Total time: 00:10:26
@@ -157,6 +158,7 @@ DZoneReadMapGSON.read10FromString       thrpt   45  154916.876 ± 1355.639  ops/
 DZoneReadMapJohnzon.read10FromString    thrpt   45   75610.515 ±  469.744  ops/s
 DZoneReadMapJsonIO.read10FromString     thrpt   45   28445.343 ±  279.304  ops/s
 DZoneReadMapJsonMoshi.read10FromString  thrpt   45   86168.309 ± 1428.668  ops/s
+```
 
 In this test, `Boon` has performance slightly exceeding standard Jackson (and only slightly
 below `jackson-jr`); GSON coming in relatively close, and other options being significantly
