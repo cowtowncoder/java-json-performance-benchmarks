@@ -135,6 +135,19 @@
         <version>1.0.0</version>
       </dependency>
 
+        <dependency>
+            <groupId>com.dslplatform</groupId>
+            <artifactId>dsl-json</artifactId>
+            <version>0.9.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.dslplatform</groupId>
+            <artifactId>dsl-json-processor</artifactId>
+            <version>0.4</version>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -146,6 +159,10 @@
             <configuration>
               <source>1.7</source>
               <target>1.7</target>
+                <annotationProcessors>
+                    <annotationProcessor>com.dslplatform.json.CompiledJsonProcessor</annotationProcessor>
+                    <annotationProcessor>org.openjdk.jmh.generators.BenchmarkProcessor</annotationProcessor>
+                </annotationProcessors>
               <showDeprecation>true</showDeprecation>
               <showWarnings>true</showWarnings>
               <optimize>true</optimize>

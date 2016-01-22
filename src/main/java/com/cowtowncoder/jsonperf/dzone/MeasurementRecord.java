@@ -20,7 +20,7 @@ public class MeasurementRecord
     public long time;
 
     // for deser
-    protected MeasurementRecord() { }
+    public MeasurementRecord() { }
     
     public MeasurementRecord(String measurementId, MeasurementType type,
             long duration, long time)
