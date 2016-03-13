@@ -1,11 +1,14 @@
 package com.cowtowncoder.jsonperf.dzone;
 
+import com.dslplatform.json.CompiledJson;
+
 import java.util.List;
 
 /**
  * Simple wrapper used to contain List of items to (de)serialize; used to avoid
  * need to  handle generic types like Lists for root values;
  */
+@CompiledJson
 public class MeasurementPOJO
 {
     public List<MeasurementRecord> items;
