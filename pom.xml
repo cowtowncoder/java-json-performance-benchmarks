@@ -89,6 +89,14 @@
         <version>2.5</version>
       </dependency>
       
+   	<!-- and Alibaba Fastjson -->
+
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>fastjson</artifactId>
+        <version>1.2.12</version>
+      </dependency>
+      
       <!--  Moshi, by some of same folks as GSON -->
       <dependency>
 	<groupId>com.squareup.moshi</groupId>
