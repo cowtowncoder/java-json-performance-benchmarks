@@ -1,5 +1,6 @@
 package com.cowtowncoder.jsonperf.dzone.read;
 
+import java.io.InputStream;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -23,6 +24,12 @@ public class DZoneReadMapFastjson extends DZoneReadTestBase<Map<Object,Object>>
     @Override
     public Map<Object,Object> _readItems(byte[] input) throws Exception {
         return (Map<Object,Object>) JSON.parse(input, Feature.DisableCircularReferenceDetect);
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public Map<Object,Object> _readItems(InputStream input) throws Exception {
+        return (Map<Object,Object>) JSON.parseObject(input, Map.class, Feature.DisableCircularReferenceDetect);
     }
 
     @SuppressWarnings("unchecked")

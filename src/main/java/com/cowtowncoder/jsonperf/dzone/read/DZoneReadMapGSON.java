@@ -24,7 +24,12 @@ public class DZoneReadMapGSON extends DZoneReadTestBase<Map<?,?>>
 
     @Override
     public Map<?,?> _readItems(byte[] input) throws Exception {
-        InputStreamReader r = new InputStreamReader(new ByteArrayInputStream(input), "UTF-8");
+        return _readItems(new ByteArrayInputStream(input));
+    }
+
+    @Override
+    public Map<?,?> _readItems(InputStream input) throws Exception {
+        InputStreamReader r = new InputStreamReader(input, "UTF-8");
         Map<?,?> value = gson.fromJson(r, Map.class);
         r.close();
         return value;

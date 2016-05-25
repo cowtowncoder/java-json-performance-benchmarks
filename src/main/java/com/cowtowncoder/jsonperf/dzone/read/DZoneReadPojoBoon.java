@@ -1,5 +1,6 @@
 package com.cowtowncoder.jsonperf.dzone.read;
 
+import java.io.InputStream;
 import java.util.concurrent.TimeUnit;
 
 import org.openjdk.jmh.annotations.OutputTimeUnit;
@@ -24,6 +25,11 @@ public class DZoneReadPojoBoon extends DZoneReadTestBase<MeasurementPOJO>
 
     @Override
     public MeasurementPOJO _readItems(byte[] input) throws Exception {
+        return mapper.readValue(input, MeasurementPOJO.class);
+    }
+
+    @Override
+    public MeasurementPOJO _readItems(InputStream input) throws Exception {
         return mapper.readValue(input, MeasurementPOJO.class);
     }
 

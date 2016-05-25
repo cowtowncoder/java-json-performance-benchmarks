@@ -1,5 +1,6 @@
 package com.cowtowncoder.jsonperf.dzone.read;
 
+import java.io.InputStream;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -23,6 +24,11 @@ public class DZoneReadMapJackson extends DZoneReadTestBase<Map<Object,Object>>
 
     @Override
     public Map<Object,Object> _readItems(byte[] input) throws Exception {
+        return objectReader.readValue(input);
+    }
+
+    @Override
+    public Map<Object,Object> _readItems(InputStream input) throws Exception {
         return objectReader.readValue(input);
     }
 

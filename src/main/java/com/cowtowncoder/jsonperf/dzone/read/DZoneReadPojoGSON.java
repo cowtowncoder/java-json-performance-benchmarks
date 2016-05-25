@@ -24,7 +24,12 @@ public class DZoneReadPojoGSON extends DZoneReadTestBase<MeasurementPOJO>
 
     @Override
     public MeasurementPOJO _readItems(byte[] input) throws Exception {
-        InputStreamReader r = new InputStreamReader(new ByteArrayInputStream(input), "UTF-8");
+        return _readItems(new ByteArrayInputStream(input));
+    }
+
+    @Override
+    public MeasurementPOJO _readItems(InputStream input) throws Exception {
+        InputStreamReader r = new InputStreamReader(input, "UTF-8");
         MeasurementPOJO value = gson.fromJson(r, MeasurementPOJO.class);
         r.close();
         return value;

@@ -1,8 +1,10 @@
 package com.cowtowncoder.jsonperf.dzone.read;
 
+import java.io.InputStream;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.IOUtils;
 import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
@@ -25,6 +27,11 @@ public class DZoneReadMapJsonParse extends DZoneReadTestBase<Map<?,?>>
         // 04-Jan-2016, tatu: Alas, this library provides no other input source abstraction,
         //    so we need to do this...
         return _readItems(new String(input, "UTF-8"));
+    }
+
+    @Override
+    public Map<?,?> _readItems(InputStream input) throws Exception {
+        return _readItems(IOUtils.toString(input, "UTF-8"));
     }
 
     @Override

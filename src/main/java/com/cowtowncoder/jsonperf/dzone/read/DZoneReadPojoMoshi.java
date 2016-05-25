@@ -1,7 +1,9 @@
 package com.cowtowncoder.jsonperf.dzone.read;
 
+import java.io.InputStream;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.IOUtils;
 import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
@@ -27,6 +29,13 @@ public class DZoneReadPojoMoshi extends DZoneReadTestBase<MeasurementPOJO>
         // In theory there may be a way to use Writer etc; but it gets complicated
         // enough with the strange API that... yeah.
         return adapter.fromJson(new String(input, "UTF-8"));
+    }
+
+    @Override
+    public MeasurementPOJO _readItems(InputStream input) throws Exception {
+        // In theory there may be a way to use Writer etc; but it gets complicated
+        // enough with the strange API that... yeah.
+        return adapter.fromJson(IOUtils.toString(input, "UTF-8"));
     }
 
     @Override
