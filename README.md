@@ -95,6 +95,16 @@ and the difference is from naming tests classes like `DZoneReadMapJackson` (repl
 
 ## Sample results
 
+***NOTE!!!***
+
+These results are bit out of date as of 31-May-2016: stay tuned for updates, with many new fast
+implementations, such as `dsl-json`, `fastjson` and newer versions of `Moshi` and `Boon`.
+
+I hope to update this page, most likely moving sample results to separate Wiki pages, given
+number of permutations and so on.
+
+### General
+
 Since results may vary significantly between different platforms and JVM versions, it is best to
 run benchmark on systems you are using.
 But to give some idea of typical results, here are samples I get running tests on my work laptop:
@@ -120,8 +130,6 @@ DZoneWriteGSON.write1kAsString       thrpt   95  1209.408 ± 10.565  ops/s
 DZoneWriteJsonIO.write1kAsString     thrpt   95   883.185 ±  7.002  ops/s
 ```
 
-Given that the test measures throughput, Jackson (the fastest) is about 5x as fast as json.io (the slowest) for this test.
-
 #### Reading 1000 item (POJO) list from String
 
 ```
@@ -137,8 +145,6 @@ DZoneReadPojoBoon.read10FromString       thrpt   45  118542.144 ± 1747.026  ops
 DZoneReadPojoMoshi.read10FromString      thrpt   45   92379.201 ± 1415.529  ops/s
 DZoneReadPojoJohnzon.read10FromString    thrpt   45   74268.988 ± 1505.027  ops/s
 ```
-
-And in this case, Jackson is 50% faster than GSON, twice as fast as Moshi and triple Johnzon speed.
 
 Json-io is not (yet) included because it seems to require JSON content to be specifically written by `json-io`
 itself, and not accept standard json representation (probably since it requires type information embedded).
@@ -159,9 +165,3 @@ DZoneReadMapJohnzon.read10FromString    thrpt   45   75610.515 ±  469.744  ops/
 DZoneReadMapJsonIO.read10FromString     thrpt   45   28445.343 ±  279.304  ops/s
 DZoneReadMapJsonMoshi.read10FromString  thrpt   45   86168.309 ± 1428.668  ops/s
 ```
-
-In this test, `Boon` has performance slightly exceeding standard Jackson (and only slightly
-below `jackson-jr`); GSON coming in relatively close, and other options being significantly
-slower.
-
-Boon seems to specifically optimized for the combination of "untyped" (Lists, Maps) result, and use of `String` as input. In fact, with bigger input size, `Boon` is the fastest library.
