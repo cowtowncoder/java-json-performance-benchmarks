@@ -1,6 +1,7 @@
 package com.cowtowncoder.jsonperf.dzone.read;
 
 import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -23,8 +24,13 @@ public class DZoneReadMapJohnzon extends DZoneReadTestBase<Map<?,?>>
 
     @Override
     public Map<?,?> _readItems(byte[] input) throws Exception {
+        return _readItems(new ByteArrayInputStream(input));
+    }
+
+    @Override
+    public Map<?,?> _readItems(InputStream input) throws Exception {
         // force assign to ensure casting checks the type
-        Map<?,?> value = mapper.readObject(new ByteArrayInputStream(input), Object.class);
+        Map<?,?> value = mapper.readObject(input, Object.class);
         return value;
     }
 

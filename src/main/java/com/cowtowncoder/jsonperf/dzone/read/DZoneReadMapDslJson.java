@@ -1,38 +1,40 @@
 package com.cowtowncoder.jsonperf.dzone.read;
 
-import com.cowtowncoder.jsonperf.dzone.MeasurementPOJO;
 import com.dslplatform.json.DslJson;
 import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 
 import java.io.InputStream;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 @State(Scope.Thread)
 @OutputTimeUnit(TimeUnit.SECONDS)
-public class DZoneReadPojoDslJson extends DZoneReadTestBase<MeasurementPOJO>
+public class DZoneReadMapDslJson extends DZoneReadTestBase<Map<String, Object>>
 {
     private final DslJson<Object> dsl;
     private final byte[] buffer = new byte[8192];
 
-    public DZoneReadPojoDslJson()
+    public DZoneReadMapDslJson()
     {
         dsl = new DslJson<>();
     }
 
+    @SuppressWarnings("unchecked")
     @Override
-    public MeasurementPOJO _readItems(byte[] input) throws Exception {
-        return dsl.deserialize(MeasurementPOJO.class, input, input.length);
+    public Map<String, Object> _readItems(byte[] input) throws Exception {
+        return dsl.deserialize(Map.class, input, input.length);
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public Map<String, Object> _readItems(InputStream input) throws Exception {
+        return dsl.deserialize(Map.class, input, buffer);
     }
 
     @Override
-    public MeasurementPOJO _readItems(InputStream input) throws Exception {
-        return dsl.deserialize(MeasurementPOJO.class, input, buffer);
-    }
-
-    @Override
-    public MeasurementPOJO _readItems(String input) throws Exception {
+    public Map<String, Object> _readItems(String input) throws Exception {
         return _readItems(input.getBytes("UTF-8"));
     }
 }

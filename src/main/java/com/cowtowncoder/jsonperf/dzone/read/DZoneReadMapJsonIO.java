@@ -18,7 +18,12 @@ public class DZoneReadMapJsonIO extends DZoneReadTestBase<Map<?,?>>
 
     @Override
     public Map<?,?> _readItems(byte[] input) throws Exception {
-        JsonReader r = new JsonReader(new ByteArrayInputStream(input));
+        return _readItems(new ByteArrayInputStream(input));
+    }
+
+    @Override
+    public Map<?,?> _readItems(InputStream input) throws Exception {
+        JsonReader r = new JsonReader(input);
         Map<?,?> value = (Map<?,?>) r.readObject();
         r.close();
         return value;

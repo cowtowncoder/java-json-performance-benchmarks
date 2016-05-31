@@ -1,8 +1,10 @@
 package com.cowtowncoder.jsonperf.dzone.read;
 
+import java.io.InputStream;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.IOUtils;
 import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
@@ -28,6 +30,11 @@ public class DZoneReadMapJsonMoshi extends DZoneReadTestBase<Map>
         // In theory there may be a way to use Writer etc; but it gets complicated
         // enough with the strange API that... yeah.
         return adapter.fromJson(new String(input, "UTF-8"));
+    }
+
+    @Override
+    public Map _readItems(InputStream input) throws Exception {
+        return adapter.fromJson(IOUtils.toString(input, "UTF-8"));
     }
 
     @Override

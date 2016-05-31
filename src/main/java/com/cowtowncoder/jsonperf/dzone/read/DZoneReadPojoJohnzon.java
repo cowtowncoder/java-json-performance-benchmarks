@@ -1,6 +1,7 @@
 package com.cowtowncoder.jsonperf.dzone.read;
 
 import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.johnzon.mapper.Mapper;
@@ -25,6 +26,11 @@ public class DZoneReadPojoJohnzon extends DZoneReadTestBase<MeasurementPOJO>
     @Override
     public MeasurementPOJO _readItems(byte[] input) throws Exception {
         return mapper.readObject(new ByteArrayInputStream(input), MeasurementPOJO.class);
+    }
+
+    @Override
+    public MeasurementPOJO _readItems(InputStream input) throws Exception {
+        return mapper.readObject(input, MeasurementPOJO.class);
     }
 
     @Override
