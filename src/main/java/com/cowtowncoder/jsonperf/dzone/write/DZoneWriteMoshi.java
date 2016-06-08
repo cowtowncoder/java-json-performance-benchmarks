@@ -34,6 +34,7 @@ public class DZoneWriteMoshi extends DZoneWriteTestBase
     {
         BufferedSink sink = Okio.buffer(Okio.sink(out));
         adapter.toJson(sink, items);
+        sink.close();
         return items.size();
     }
 

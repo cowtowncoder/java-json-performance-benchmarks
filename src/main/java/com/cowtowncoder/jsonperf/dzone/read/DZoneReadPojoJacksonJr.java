@@ -18,7 +18,11 @@ public class DZoneReadPojoJacksonJr extends DZoneReadTestBase<MeasurementPOJO>
 
     public DZoneReadPojoJacksonJr()
     {
-        json = JSON.std;
+        json = JSON.std
+                /* 01-Jun-2016, tatu: Should NOT use deferred maps as they can
+                 *    skew results
+                 */
+                .without(JSON.Feature.USE_DEFERRED_MAPS);
     }
 
     @Override
