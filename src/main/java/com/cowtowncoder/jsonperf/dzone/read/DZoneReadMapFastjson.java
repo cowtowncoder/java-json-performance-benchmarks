@@ -10,6 +10,7 @@ import org.openjdk.jmh.annotations.State;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.parser.Feature;
+import com.cowtowncoder.jsonperf.dzone.DZoneReadTestBase;
 
 @State(Scope.Thread)
 @OutputTimeUnit(TimeUnit.SECONDS)

@@ -9,6 +9,7 @@ import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 
+import com.cowtowncoder.jsonperf.dzone.DZoneReadTestBase;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
 

@@ -12,6 +12,7 @@ using widely-used, popular Java JSON libraries like:
 as well as some of newer Java JSON library options:
 
 * [Boon](https://github.com/boonproject/boon/wiki/Boon-JSON-in-five-minutes)
+* [DSL-JSON](https://github.com/ngs-doo/dsl-json) (compatible with [DSL-Platform](https://dsl-platform.com/))
 * [Johnzon](http://johnzon.incubator.apache.org/)
     * pre-1.0, incubation release
 * [json-io](https://github.com/jdereg/json-io)
@@ -23,7 +24,7 @@ The criteria for inclusion here is that for a library to be included it should
 1. be published to the central Maven repository (so we can include official builds)
 2. be able to read and write POJOs, not just "Lists and Maps" or "custom tree nodes library defines" (although some tests may also exercise these styles as well)
 
-and for this reason some commonly used libraries (like old "org.json" library) are not included.
+and for this reason some commonly used libraries (like old "org.json" library and "simple-json") are not included.
 
 ## Usage
 
@@ -37,9 +38,11 @@ after this, tests are run the way `jmh` tests are, by just running "executable" 
 
 for example:
 
-    java -Xmx256m -jar target/microbenchmarks.jar -wi 4 -i 5 -f 9 ".*DZoneWrite.*write10AsString" 
+    java -Xmx256m -jar target/microbenchmarks.jar -wi 4 -i 5 -f 9 ".*DZoneReadPojo.*read10FromStream" 
+    java -Xmx256m -jar target/microbenchmarks.jar -wi 4 -i 5 -f 9 ".*DZoneWrite.*write10UsingStream" 
 
-which would run the "DZone" write test with 10 items, using 9 iterations of 5 seconds, with warmup time of 4 seconds.
+both of which would run the "DZone" write test with 10 items, using 9 iterations of 5 seconds, with warmup time of 4 seconds; first test for read (JSON into POJO) and second write (POJO to JSON) performance.
+
 All options are explained by jmh documentation; an easy way to see options available is to enter:
 
     java -jar target/microbenchmarks.jar -h
@@ -95,73 +98,4 @@ and the difference is from naming tests classes like `DZoneReadMapJackson` (repl
 
 ## Sample results
 
-***NOTE!!!***
-
-These results are bit out of date as of 31-May-2016: stay tuned for updates, with many new fast
-implementations, such as `dsl-json`, `fastjson` and newer versions of `Moshi` and `Boon`.
-
-I hope to update this page, most likely moving sample results to separate Wiki pages, given
-number of permutations and so on.
-
-### General
-
-Since results may vary significantly between different platforms and JVM versions, it is best to
-run benchmark on systems you are using.
-But to give some idea of typical results, here are samples I get running tests on my work laptop:
-
-### DZone tests
-
-Results as reported on console, except sorted in descending order of performance (fastest first)
-
-#### Writing 1000 item list as String
-
-```
-% java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneWrite.*write1k.*AsString.*" -wi 4 -i 5 -f 19
-
-# Run complete. Total time: 00:20:58
-
-Benchmark                             Mode  Cnt     Score    Error  Units
-DZoneWriteJackson.write1kAsString    thrpt   95  4377.870 ± 22.375  ops/s
-DZoneWriteJacksonJr.write1kAsString  thrpt   95  3880.734 ± 32.488  ops/s
-DZoneWriteBoon.write1kAsString       thrpt   95  2614.780 ± 15.105  ops/s
-DZoneWriteJohnzon.write1kAsString    thrpt   95  2088.878 ± 12.612  ops/s
-DZoneWriteMoshi.write1kAsString      thrpt   95  1655.735 ±  9.793  ops/s
-DZoneWriteGSON.write1kAsString       thrpt   95  1209.408 ± 10.565  ops/s
-DZoneWriteJsonIO.write1kAsString     thrpt   95   883.185 ±  7.002  ops/s
-```
-
-#### Reading 1000 item (POJO) list from String
-
-```
-% java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneReadPojo.*read10FromString.*" -wi 4 -i 5 -f 9
-
-# Run complete. Total time: 00:10:27
-
-Benchmark                                 Mode  Cnt       Score      Error  Units
-DZoneReadPojoJacksonJr.read10FromString  thrpt   45  217944.421 ± 3606.032  ops/s
-DZoneReadPojoJackson.read10FromString    thrpt   45  215162.661 ± 3699.385  ops/s
-DZoneReadPojoGSON.read10FromString       thrpt   45  143185.788 ± 3431.425  ops/s
-DZoneReadPojoBoon.read10FromString       thrpt   45  118542.144 ± 1747.026  ops/s
-DZoneReadPojoMoshi.read10FromString      thrpt   45   92379.201 ± 1415.529  ops/s
-DZoneReadPojoJohnzon.read10FromString    thrpt   45   74268.988 ± 1505.027  ops/s
-```
-
-Json-io is not (yet) included because it seems to require JSON content to be specifically written by `json-io`
-itself, and not accept standard json representation (probably since it requires type information embedded).
-
-#### Reading 10 items as "untyped" (`Map`) from String
-
-```
-% java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneReadMap.*read10FromString.*" -wi 4 -i 5 -f 9
-
-# Run complete. Total time: 00:10:26
-
-Benchmark                                Mode  Cnt       Score      Error  Units
-DZoneReadMapJacksonJr.read10FromString  thrpt   45  233240.208 ± 2844.701  ops/s
-DZoneReadMapBoon.read10FromString       thrpt   45  216714.713 ± 2328.799  ops/s
-DZoneReadMapJackson.read10FromString    thrpt   45  197597.668 ± 2092.722  ops/s
-DZoneReadMapGSON.read10FromString       thrpt   45  154916.876 ± 1355.639  ops/s
-DZoneReadMapJohnzon.read10FromString    thrpt   45   75610.515 ±  469.744  ops/s
-DZoneReadMapJsonIO.read10FromString     thrpt   45   28445.343 ±  279.304  ops/s
-DZoneReadMapJsonMoshi.read10FromString  thrpt   45   86168.309 ± 1428.668  ops/s
-```
+See [Wiki](../../wiki) for sample results.

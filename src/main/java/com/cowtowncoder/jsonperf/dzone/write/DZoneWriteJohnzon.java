@@ -8,6 +8,7 @@ import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 import org.apache.johnzon.mapper.*;
 
+import com.cowtowncoder.jsonperf.dzone.DZoneWriteTestBase;
 import com.cowtowncoder.jsonperf.dzone.MeasurementPOJO;
 
 @State(Scope.Thread)

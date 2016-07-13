@@ -9,6 +9,7 @@ import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 
 import com.cedarsoftware.util.io.JsonReader;
+import com.cowtowncoder.jsonperf.dzone.DZoneReadTestBase;
 
 @State(Scope.Thread)
 @OutputTimeUnit(TimeUnit.SECONDS)

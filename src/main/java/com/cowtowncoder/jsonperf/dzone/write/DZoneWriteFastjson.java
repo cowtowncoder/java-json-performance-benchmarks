@@ -10,6 +10,7 @@ import org.openjdk.jmh.annotations.State;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.cowtowncoder.jsonperf.dzone.DZoneWriteTestBase;
 import com.cowtowncoder.jsonperf.dzone.MeasurementPOJO;
 
 @State(Scope.Thread)

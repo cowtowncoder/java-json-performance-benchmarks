@@ -8,6 +8,7 @@ import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 
+import com.cowtowncoder.jsonperf.dzone.DZoneWriteTestBase;
 import com.cowtowncoder.jsonperf.dzone.MeasurementPOJO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;

@@ -1,4 +1,4 @@
-package com.cowtowncoder.jsonperf.dzone.write;
+package com.cowtowncoder.jsonperf.dzone;
 
 import java.io.OutputStream;
 import java.io.Writer;
@@ -8,8 +8,6 @@ import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.infra.Blackhole;
 
-import com.cowtowncoder.jsonperf.dzone.MeasurementPOJO;
-import com.cowtowncoder.jsonperf.dzone.TestData;
 import com.cowtowncoder.jsonperf.util.NopOutputStream;
 import com.cowtowncoder.jsonperf.util.NopWriter;
 
@@ -18,7 +16,7 @@ import com.cowtowncoder.jsonperf.util.NopWriter;
  * <a href="https://dzone.com/articles/compare-json-api">DZone Jackson vs GSON</a>
  * test.
  */
-abstract class DZoneWriteTestBase
+public abstract class DZoneWriteTestBase
 {
     protected final static MeasurementPOJO list10 = TestData.list10;
     protected final static MeasurementPOJO list1000 = TestData.list1000;

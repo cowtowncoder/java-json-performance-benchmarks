@@ -1,5 +1,6 @@
 package com.cowtowncoder.jsonperf.dzone.write;
 
+import com.cowtowncoder.jsonperf.dzone.DZoneWriteTestBase;
 import com.cowtowncoder.jsonperf.dzone.MeasurementPOJO;
 import com.dslplatform.json.DslJson;
 import com.dslplatform.json.JsonWriter;

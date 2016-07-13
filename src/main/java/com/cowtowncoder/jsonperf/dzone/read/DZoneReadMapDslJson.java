@@ -1,5 +1,6 @@
 package com.cowtowncoder.jsonperf.dzone.read;
 
+import com.cowtowncoder.jsonperf.dzone.DZoneReadTestBase;
 import com.dslplatform.json.DslJson;
 import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Scope;

@@ -8,6 +8,8 @@ import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 
+import com.cowtowncoder.jsonperf.dzone.DZoneReadTestBase;
+
 import org.boon.json.JsonFactory;
 import org.boon.json.ObjectMapper;
 

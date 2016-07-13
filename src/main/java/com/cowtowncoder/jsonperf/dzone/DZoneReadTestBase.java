@@ -1,4 +1,4 @@
-package com.cowtowncoder.jsonperf.dzone.read;
+package com.cowtowncoder.jsonperf.dzone;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -8,9 +8,7 @@ import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.infra.Blackhole;
 
-import com.cowtowncoder.jsonperf.dzone.TestData;
-
-abstract class DZoneReadTestBase<T>
+public abstract class DZoneReadTestBase<T>
 {
     protected final static byte[] list10b = TestData.Input.list10Bytes;
     protected final static byte[] list1000b = TestData.Input.list1000Bytes;
