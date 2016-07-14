@@ -1,7 +1,7 @@
 Date: 13-Jul-2016 - 
 JDK: 1.8.0_92
 
---- Read from Stream ---
+--- Read POJO from Stream ---
 
 java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneReadPojo.*read10FromStream.*" -wi 4 -i 5 -f 9
 
@@ -42,4 +42,47 @@ DZoneReadPojoJacksonJr.read100kFromStream  thrpt   45      24.249 ±    0.349  o
 DZoneReadPojoJohnzon.read100kFromStream    thrpt   45       1.528 ±    0.499  ops/s
 DZoneReadPojoMoshi.read100kFromStream      thrpt   45       9.352 ±    0.127  ops/s
 
---- Write to Stream ---
+--- Write POJO to Stream ---
+
+java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneWrite.*write10UsingStream.*" -wi 4 -i 5 -f 9
+Benchmark                                  Mode  Cnt        Score      Error  Units
+
+DZoneWriteBoon.write10UsingStream         thrpt   45   145920.793 ± 1398.165  ops/s
+DZoneWriteDslJson.write10UsingStream      thrpt   45  1248621.698 ± 4090.324  ops/s
+DZoneWriteFastjson.write10UsingStream     thrpt   45   633573.722 ± 4810.665  ops/s
+DZoneWriteGSON.write10UsingStream         thrpt   45    62443.344 ± 1424.105  ops/s
+DZoneWriteJackson.write10UsingStream      thrpt   45   409214.205 ± 9970.480  ops/s
+DZoneWriteJacksonAB.write10UsingStream    thrpt   45   539135.706 ± 8238.484  ops/s
+DZoneWriteJacksonJr.write10UsingStream    thrpt   45   368507.117 ± 1938.819  ops/s
+DZoneWriteJohnzon.write10UsingStream      thrpt   45    61380.222 ±  241.939  ops/s
+DZoneWriteJsonIO.write10UsingStream       thrpt   45    55047.774 ± 1349.265  ops/s
+DZoneWriteMoshi.write10UsingStream        thrpt   45   170623.359 ±  957.548  ops/s
+
+java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneWrite.*write1kUsingStream.*" -wi 4 -i 5 -f 9
+Benchmark                                  Mode  Cnt        Score      Error  Units
+
+DZoneWriteBoon.write1kUsingStream         thrpt   45     2384.741 ±   17.837  ops/s
+DZoneWriteDslJson.write1kUsingStream      thrpt   45    13578.064 ±   31.253  ops/s
+DZoneWriteFastjson.write1kUsingStream     thrpt   45     3887.526 ±   21.009  ops/s
+DZoneWriteGSON.write1kUsingStream         thrpt   45      630.678 ±    9.228  ops/s
+DZoneWriteJackson.write1kUsingStream      thrpt   45     4401.440 ±   81.459  ops/s
+DZoneWriteJacksonAB.write1kUsingStream    thrpt   45     5891.807 ±   40.457  ops/s
+DZoneWriteJacksonJr.write1kUsingStream    thrpt   45     4057.420 ±   95.641  ops/s
+DZoneWriteJohnzon.write1kUsingStream      thrpt   45     1496.797 ±   20.854  ops/s
+DZoneWriteJsonIO.write1kUsingStream       thrpt   45      956.648 ±   15.043  ops/s
+DZoneWriteMoshi.write1kUsingStream        thrpt   45     1763.801 ±    9.083  ops/s
+
+java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneWrite.*write100kUsingStream.*" -wi 4 -i 5 -f 9
+Benchmark                                  Mode  Cnt        Score      Error  Units
+
+DZoneWriteBoon.write100kUsingStream       thrpt   45       17.482 ±    0.128  ops/s
+DZoneWriteDslJson.write100kUsingStream    thrpt   45      133.129 ±    1.054  ops/s
+DZoneWriteFastjson.write100kUsingStream   thrpt   45       25.076 ±    0.217  ops/s
+DZoneWriteGSON.write100kUsingStream       thrpt   45        6.338 ±    0.092  ops/s
+DZoneWriteJackson.write100kUsingStream    thrpt   45       43.369 ±    1.445  ops/s
+DZoneWriteJacksonAB.write100kUsingStream  thrpt   45       58.029 ±    0.460  ops/s
+DZoneWriteJacksonJr.write100kUsingStream  thrpt   45       39.818 ±    0.212  ops/s
+DZoneWriteJohnzon.write100kUsingStream    thrpt   45       15.212 ±    0.180  ops/s
+DZoneWriteJsonIO.write100kUsingStream     thrpt   45        9.067 ±    0.093  ops/s
+DZoneWriteMoshi.write100kUsingStream      thrpt   45       18.372 ±    0.148  ops/s
+
