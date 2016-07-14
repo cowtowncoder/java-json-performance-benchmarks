@@ -9,21 +9,21 @@ import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 
 import com.cedarsoftware.util.io.JsonReader;
-import com.cowtowncoder.jsonperf.dzone.DZoneReadTestBase;
+import com.cowtowncoder.jsonperf.dzone.DZoneMapReadTestBase;
 
 @State(Scope.Thread)
 @OutputTimeUnit(TimeUnit.SECONDS)
-public class DZoneReadMapJsonIO extends DZoneReadTestBase<Map<?,?>>
+public class DZoneReadMapJsonIO extends DZoneMapReadTestBase
 {
     public DZoneReadMapJsonIO() { }
 
     @Override
-    public Map<?,?> _readItems(byte[] input) throws Exception {
-        return _readItems(new ByteArrayInputStream(input));
+    public Map<?,?> _readMap(byte[] input) throws Exception {
+        return _readMap(new ByteArrayInputStream(input));
     }
 
     @Override
-    public Map<?,?> _readItems(InputStream input) throws Exception {
+    public Map<?,?> _readMap(InputStream input) throws Exception {
         JsonReader r = new JsonReader(input);
         Map<?,?> value = (Map<?,?>) r.readObject();
         r.close();
@@ -31,7 +31,7 @@ public class DZoneReadMapJsonIO extends DZoneReadTestBase<Map<?,?>>
     }
 
     @Override
-    public Map<?,?> _readItems(String input) throws Exception {
+    public Map<?,?> _readMap(String input) throws Exception {
         Map<?,?> value = (Map<?,?>) JsonReader.jsonToJava(input);
         return value;
     }

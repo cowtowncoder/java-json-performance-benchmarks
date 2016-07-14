@@ -1,6 +1,50 @@
 Date: 13-Jul-2016 - 
 JDK: 1.8.0_92
 
+--- Read Map from Stream ---
+
+java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneReadMap.*read10FromStream.*" -wi 4 -i 5 -f 9
+
+Benchmark                                Mode  Cnt       Score      Error  Units
+DZoneReadMapBoon.read10FromStream       thrpt   45  110664.199 ± 1905.039  ops/s
+DZoneReadMapDslJson.read10FromStream    thrpt   45  181647.546 ± 1876.688  ops/s
+DZoneReadMapFastjson.read10FromStream   thrpt   45  174096.798 ±  899.883  ops/s
+DZoneReadMapGSON.read10FromStream       thrpt   45  129327.023 ± 1056.891  ops/s
+DZoneReadMapJackson.read10FromStream    thrpt   45  219009.268 ± 2214.295  ops/s
+DZoneReadMapJacksonJr.read10FromStream  thrpt   45  255682.953 ± 2929.655  ops/s
+DZoneReadMapJohnzon.read10FromStream    thrpt   45   73088.556 ±  607.049  ops/s
+DZoneReadMapJsonIO.read10FromStream     thrpt   45   35642.339 ±  193.698  ops/s
+DZoneReadMapJsonMoshi.read10FromStream  thrpt   45   78010.156 ±  617.661  ops/s
+DZoneReadMapJsonParse.read10FromStream  thrpt   45   67171.690 ±  556.279  ops/s
+
+java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneReadMap.*read1kFromStream.*" -wi 4 -i 5 -f 9
+
+Benchmark                                Mode  Cnt     Score    Error  Units
+DZoneReadMapBoon.read1kFromStream       thrpt   45  2859.476 ± 17.116  ops/s
+DZoneReadMapDslJson.read1kFromStream    thrpt   45  2100.989 ± 12.555  ops/s
+DZoneReadMapFastjson.read1kFromStream   thrpt   45  1792.598 ±  9.966  ops/s
+DZoneReadMapGSON.read1kFromStream       thrpt   45  1349.287 ± 27.478  ops/s
+DZoneReadMapJackson.read1kFromStream    thrpt   45  2283.543 ± 19.933  ops/s
+DZoneReadMapJacksonJr.read1kFromStream  thrpt   45  2627.788 ± 61.535  ops/s
+DZoneReadMapJohnzon.read1kFromStream    thrpt   45   788.152 ±  8.899  ops/s
+DZoneReadMapJsonIO.read1kFromStream     thrpt   45   437.401 ±  2.061  ops/s
+DZoneReadMapJsonMoshi.read1kFromStream  thrpt   45   904.866 ±  7.869  ops/s
+DZoneReadMapJsonParse.read1kFromStream  thrpt   45   840.337 ±  4.644  ops/s
+
+java -Xmx512m -jar target/microbenchmarks.jar ".*DZoneReadMap.*read100kFromStream.*" -wi 4 -i 5 -f 1
+
+Benchmark                                  Mode  Cnt   Score   Error  Units
+DZoneReadMapBoon.read100kFromStream       thrpt    5   5.207 ± 4.223  ops/s
+DZoneReadMapDslJson.read100kFromStream    thrpt    5  13.378 ± 5.999  ops/s
+DZoneReadMapFastjson.read100kFromStream   thrpt    5  11.682 ± 4.782  ops/s
+DZoneReadMapGSON.read100kFromStream       thrpt    5   7.541 ± 5.027  ops/s
+DZoneReadMapJackson.read100kFromStream    thrpt    5  20.383 ± 1.312  ops/s
+DZoneReadMapJacksonJr.read100kFromStream  thrpt    5  27.478 ± 1.170  ops/s
+DZoneReadMapJohnzon.read100kFromStream    thrpt    5   4.193 ± 1.505  ops/s
+DZoneReadMapJsonIO.read100kFromStream     thrpt    5   2.424 ± 1.377  ops/s
+DZoneReadMapJsonMoshi.read100kFromStream  thrpt    5   5.321 ± 0.262  ops/s
+DZoneReadMapJsonParse.read100kFromStream  thrpt    5   3.767 ± 2.407  ops/s
+
 --- Read POJO from Stream ---
 
 java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneReadPojo.*read10FromStream.*" -wi 4 -i 5 -f 9

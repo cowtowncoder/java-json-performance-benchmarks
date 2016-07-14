@@ -8,13 +8,13 @@ import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 
-import com.cowtowncoder.jsonperf.dzone.DZoneReadTestBase;
+import com.cowtowncoder.jsonperf.dzone.DZoneMapReadTestBase;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 
 @State(Scope.Thread)
 @OutputTimeUnit(TimeUnit.SECONDS)
-public class DZoneReadMapJackson extends DZoneReadTestBase<Map<Object,Object>>
+public class DZoneReadMapJackson extends DZoneMapReadTestBase
 {
     private final ObjectReader objectReader;
 
@@ -24,17 +24,17 @@ public class DZoneReadMapJackson extends DZoneReadTestBase<Map<Object,Object>>
     }
 
     @Override
-    public Map<Object,Object> _readItems(byte[] input) throws Exception {
+    public Map<Object,Object> _readMap(byte[] input) throws Exception {
         return objectReader.readValue(input);
     }
 
     @Override
-    public Map<Object,Object> _readItems(InputStream input) throws Exception {
+    public Map<Object,Object> _readMap(InputStream input) throws Exception {
         return objectReader.readValue(input);
     }
 
     @Override
-    public Map<Object,Object> _readItems(String input) throws Exception {
+    public Map<Object,Object> _readMap(String input) throws Exception {
         return objectReader.readValue(input);
     }
 }

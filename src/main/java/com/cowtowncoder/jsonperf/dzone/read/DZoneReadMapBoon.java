@@ -8,14 +8,14 @@ import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 
-import com.cowtowncoder.jsonperf.dzone.DZoneReadTestBase;
+import com.cowtowncoder.jsonperf.dzone.DZoneMapReadTestBase;
 
 import org.boon.json.JsonFactory;
 import org.boon.json.ObjectMapper;
 
 @State(Scope.Thread)
 @OutputTimeUnit(TimeUnit.SECONDS)
-public class DZoneReadMapBoon extends DZoneReadTestBase<Map<?,?>>
+public class DZoneReadMapBoon extends DZoneMapReadTestBase
 {
     protected final ObjectMapper mapper;
 
@@ -25,17 +25,17 @@ public class DZoneReadMapBoon extends DZoneReadTestBase<Map<?,?>>
     }
 
     @Override
-    public Map<?,?> _readItems(byte[] input) throws Exception {
+    public Map<?,?> _readMap(byte[] input) throws Exception {
         return mapper.readValue(input, Map.class);
     }
 
     @Override
-    public Map<?,?> _readItems(InputStream input) throws Exception {
+    public Map<?,?> _readMap(InputStream input) throws Exception {
         return mapper.readValue(input, Map.class);
     }
 
     @Override
-    public Map<?,?> _readItems(String input) throws Exception {
+    public Map<?,?> _readMap(String input) throws Exception {
         return mapper.readValue(input, Map.class);
     }
 }

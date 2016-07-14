@@ -8,13 +8,13 @@ import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 
-import com.cowtowncoder.jsonperf.dzone.DZoneReadTestBase;
+import com.cowtowncoder.jsonperf.dzone.DZoneMapReadTestBase;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 @State(Scope.Thread)
 @OutputTimeUnit(TimeUnit.SECONDS)
-public class DZoneReadMapGSON extends DZoneReadTestBase<Map<?,?>>
+public class DZoneReadMapGSON extends DZoneMapReadTestBase
 {
     protected final Gson gson;
 
@@ -24,12 +24,12 @@ public class DZoneReadMapGSON extends DZoneReadTestBase<Map<?,?>>
     }
 
     @Override
-    public Map<?,?> _readItems(byte[] input) throws Exception {
-        return _readItems(new ByteArrayInputStream(input));
+    public Map<?,?> _readMap(byte[] input) throws Exception {
+        return _readMap(new ByteArrayInputStream(input));
     }
 
     @Override
-    public Map<?,?> _readItems(InputStream input) throws Exception {
+    public Map<?,?> _readMap(InputStream input) throws Exception {
         InputStreamReader r = new InputStreamReader(input, "UTF-8");
         Map<?,?> value = gson.fromJson(r, Map.class);
         r.close();
@@ -37,7 +37,7 @@ public class DZoneReadMapGSON extends DZoneReadTestBase<Map<?,?>>
     }
 
     @Override
-    public Map<?,?> _readItems(String input) throws Exception {
+    public Map<?,?> _readMap(String input) throws Exception {
         return gson.fromJson(input, Map.class);
     }
 }

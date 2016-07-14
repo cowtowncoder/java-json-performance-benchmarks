@@ -11,11 +11,11 @@ import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 
-import com.cowtowncoder.jsonperf.dzone.DZoneReadTestBase;
+import com.cowtowncoder.jsonperf.dzone.DZoneMapReadTestBase;
 
 @State(Scope.Thread)
 @OutputTimeUnit(TimeUnit.SECONDS)
-public class DZoneReadMapJohnzon extends DZoneReadTestBase<Map<?,?>>
+public class DZoneReadMapJohnzon extends DZoneMapReadTestBase
 {
     protected final Mapper mapper;
 
@@ -25,19 +25,19 @@ public class DZoneReadMapJohnzon extends DZoneReadTestBase<Map<?,?>>
     }
 
     @Override
-    public Map<?,?> _readItems(byte[] input) throws Exception {
-        return _readItems(new ByteArrayInputStream(input));
+    public Map<?,?> _readMap(byte[] input) throws Exception {
+        return _readMap(new ByteArrayInputStream(input));
     }
 
     @Override
-    public Map<?,?> _readItems(InputStream input) throws Exception {
+    public Map<?,?> _readMap(InputStream input) throws Exception {
         // force assign to ensure casting checks the type
         Map<?,?> value = mapper.readObject(input, Object.class);
         return value;
     }
 
     @Override
-    public Map<?,?> _readItems(String input) throws Exception {
+    public Map<?,?> _readMap(String input) throws Exception {
         Map<?,?> value =  mapper.readObject(input, Object.class);
         return value;
     }
