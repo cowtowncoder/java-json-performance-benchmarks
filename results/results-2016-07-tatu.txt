@@ -31,19 +31,19 @@ DZoneReadMapJsonIO.read1kFromStream     thrpt   45   437.401 ±  2.061  ops/s
 DZoneReadMapJsonMoshi.read1kFromStream  thrpt   45   904.866 ±  7.869  ops/s
 DZoneReadMapJsonParse.read1kFromStream  thrpt   45   840.337 ±  4.644  ops/s
 
-java -Xmx512m -jar target/microbenchmarks.jar ".*DZoneReadMap.*read100kFromStream.*" -wi 4 -i 5 -f 1
+java -Xmx512m -jar target/microbenchmarks.jar ".*DZoneReadMap.*read100kFromStream.*" -wi 4 -i 5 -f 20
 
 Benchmark                                  Mode  Cnt   Score   Error  Units
-DZoneReadMapBoon.read100kFromStream       thrpt    5   5.207 ± 4.223  ops/s
-DZoneReadMapDslJson.read100kFromStream    thrpt    5  13.378 ± 5.999  ops/s
-DZoneReadMapFastjson.read100kFromStream   thrpt    5  11.682 ± 4.782  ops/s
-DZoneReadMapGSON.read100kFromStream       thrpt    5   7.541 ± 5.027  ops/s
-DZoneReadMapJackson.read100kFromStream    thrpt    5  20.383 ± 1.312  ops/s
-DZoneReadMapJacksonJr.read100kFromStream  thrpt    5  27.478 ± 1.170  ops/s
-DZoneReadMapJohnzon.read100kFromStream    thrpt    5   4.193 ± 1.505  ops/s
-DZoneReadMapJsonIO.read100kFromStream     thrpt    5   2.424 ± 1.377  ops/s
-DZoneReadMapJsonMoshi.read100kFromStream  thrpt    5   5.321 ± 0.262  ops/s
-DZoneReadMapJsonParse.read100kFromStream  thrpt    5   3.767 ± 2.407  ops/s
+DZoneReadMapBoon.read100kFromStream       thrpt  100   5.428 ± 0.360  ops/s
+DZoneReadMapDslJson.read100kFromStream    thrpt  100  13.016 ± 0.464  ops/s
+DZoneReadMapFastjson.read100kFromStream   thrpt  100  11.521 ± 0.438  ops/s
+DZoneReadMapGSON.read100kFromStream       thrpt  100   7.976 ± 0.272  ops/s
+DZoneReadMapJackson.read100kFromStream    thrpt  100  20.852 ± 0.301  ops/s
+DZoneReadMapJacksonJr.read100kFromStream  thrpt  100  20.703 ± 0.541  ops/s
+DZoneReadMapJohnzon.read100kFromStream    thrpt  100   4.046 ± 0.195  ops/s
+DZoneReadMapJsonIO.read100kFromStream     thrpt  100   2.428 ± 0.065  ops/s
+DZoneReadMapJsonMoshi.read100kFromStream  thrpt  100   5.406 ± 0.297  ops/s
+DZoneReadMapJsonParse.read100kFromStream  thrpt  100   4.895 ± 0.261  ops/s
 
 --- Read POJO from Stream ---
 
