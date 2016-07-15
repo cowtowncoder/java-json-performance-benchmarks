@@ -16,7 +16,7 @@ public class TestData
         public final static byte[] list100000Bytes;
 
         // Bit problematic no matter how we choose; but let's use Gson here
-        // to try to reduc
+        // as simple baseline implementation
         static {
             list10String = list10.asJSON();
             list1000String = list1000.asJSON();
