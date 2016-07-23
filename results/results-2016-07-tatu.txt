@@ -47,64 +47,64 @@ DZoneReadMapJsonParse.read100kFromStream  thrpt  100   4.895 ± 0.261  ops/s
 
 --- Read POJO from Stream ---
 
-java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneReadPojo.*read10FromStream.*" -wi 4 -i 5 -f 9
+java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneReadPojo.*read10FromStream.*" -r 1 -wi 4 -i 5 -f 20
 
-Benchmark                                   Mode  Cnt       Score      Error  Units
-DZoneReadPojoBoon.read10FromStream         thrpt   45   74639.733 ± 1117.405  ops/s
-DZoneReadPojoDslJson.read10FromStream      thrpt   45  320734.179 ± 7274.915  ops/s
-DZoneReadPojoFastjson.read10FromStream     thrpt   45  184152.731 ±  828.647  ops/s
-DZoneReadPojoGSON.read10FromStream         thrpt   45  125258.302 ±  851.444  ops/s
-DZoneReadPojoJackson.read10FromStream      thrpt   45  218494.645 ±  991.720  ops/s
-DZoneReadPojoJacksonAB.read10FromStream    thrpt   45  259265.236 ± 2189.515  ops/s
-DZoneReadPojoJacksonJr.read10FromStream    thrpt   45  244266.647 ± 3900.978  ops/s
-DZoneReadPojoJohnzon.read10FromStream      thrpt   45   74190.356 ±  420.075  ops/s
-DZoneReadPojoMoshi.read10FromStream        thrpt   45   99852.972 ±  455.359  ops/s
+Benchmark                                 Mode  Cnt       Score      Error  Units
+DZoneReadPojoBoon.read10FromStream       thrpt  100   75079.396 ±  675.556  ops/s
+DZoneReadPojoDslJson.read10FromStream    thrpt  100  323728.724 ± 4584.963  ops/s
+DZoneReadPojoFastjson.read10FromStream   thrpt  100  183921.951 ±  592.354  ops/s
+DZoneReadPojoGSON.read10FromStream       thrpt  100  125163.188 ±  397.095  ops/s
+DZoneReadPojoJackson.read10FromStream    thrpt  100  217395.184 ± 1447.301  ops/s
+DZoneReadPojoJacksonAB.read10FromStream  thrpt  100  258602.892 ± 1990.310  ops/s
+DZoneReadPojoJacksonJr.read10FromStream  thrpt  100  245435.467 ± 3104.871  ops/s
+DZoneReadPojoJohnzon.read10FromStream    thrpt  100   73778.046 ±  355.663  ops/s
+DZoneReadPojoMoshi.read10FromStream      thrpt  100   99626.462 ±  411.663  ops/s
 
-java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneReadPojo.*read1k.*FromStream.*" -wi 4 -i 5 -f 9
+java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneReadPojo.*read1k.*FromStream.*" -wi 4 -i 5 -f 20
 
 Benchmark                                 Mode  Cnt     Score    Error  Units
-DZoneReadPojoBoon.read1kFromStream       thrpt   45  1469.909 ±  9.855  ops/s
-DZoneReadPojoDslJson.read1kFromStream    thrpt   45  3560.760 ± 84.895  ops/s
-DZoneReadPojoFastjson.read1kFromStream   thrpt   45  1792.828 ±  8.163  ops/s
-DZoneReadPojoGSON.read1kFromStream       thrpt   45  1380.143 ±  6.147  ops/s
-DZoneReadPojoJackson.read1kFromStream    thrpt   45  2304.526 ± 11.493  ops/s
-DZoneReadPojoJacksonAB.read1kFromStream  thrpt   45  2740.538 ± 14.262  ops/s
-DZoneReadPojoJacksonJr.read1kFromStream  thrpt   45  2593.301 ± 42.845  ops/s
-DZoneReadPojoJohnzon.read1kFromStream    thrpt   45   823.543 ±  7.089  ops/s
-DZoneReadPojoMoshi.read1kFromStream      thrpt   45  1193.732 ±  7.847  ops/s
+DZoneReadPojoBoon.read1kFromStream       thrpt  100  1472.596 ±  8.254  ops/s
+DZoneReadPojoDslJson.read1kFromStream    thrpt  100  3501.156 ± 38.140  ops/s
+DZoneReadPojoFastjson.read1kFromStream   thrpt  100  1798.945 ±  4.799  ops/s
+DZoneReadPojoGSON.read1kFromStream       thrpt  100  1375.338 ±  5.315  ops/s
+DZoneReadPojoJackson.read1kFromStream    thrpt  100  2297.369 ± 11.043  ops/s
+DZoneReadPojoJacksonAB.read1kFromStream  thrpt  100  2785.622 ± 23.830  ops/s
+DZoneReadPojoJacksonJr.read1kFromStream  thrpt  100  2588.556 ± 22.508  ops/s
+DZoneReadPojoJohnzon.read1kFromStream    thrpt  100   824.397 ±  4.500  ops/s
+DZoneReadPojoMoshi.read1kFromStream      thrpt  100  1182.465 ±  6.206  ops/s
 
-java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneReadPojo.*read100k.*FromStream.*" -wi 4 -i 5 -f 9
+java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneReadPojo.*read100k.*FromStream.*" -wi 4 -i 5 -f 20
 
-Benchmark                                   Mode  Cnt       Score      Error  Units
-DZoneReadPojoBoon.read100kFromStream       thrpt   45       5.492 ±    0.076  ops/s
-DZoneReadPojoDslJson.read100kFromStream    thrpt   45      33.791 ±    0.875  ops/s
-DZoneReadPojoFastjson.read100kFromStream   thrpt   45      12.213 ±    0.280  ops/s
-DZoneReadPojoGSON.read100kFromStream       thrpt   45      12.857 ±    0.215  ops/s
-DZoneReadPojoJackson.read100kFromStream    thrpt   45      21.912 ±    0.205  ops/s
-DZoneReadPojoJacksonAB.read100kFromStream  thrpt   45      26.682 ±    0.325  ops/s
-DZoneReadPojoJacksonJr.read100kFromStream  thrpt   45      24.249 ±    0.349  ops/s
-DZoneReadPojoJohnzon.read100kFromStream    thrpt   45       1.528 ±    0.499  ops/s
-DZoneReadPojoMoshi.read100kFromStream      thrpt   45       9.352 ±    0.127  ops/s
+Benchmark                                   Mode  Cnt   Score   Error  Units
+DZoneReadPojoBoon.read100kFromStream       thrpt  100   5.495 ± 0.065  ops/s
+DZoneReadPojoDslJson.read100kFromStream    thrpt  100  33.644 ± 0.510  ops/s
+DZoneReadPojoFastjson.read100kFromStream   thrpt  100  12.189 ± 0.211  ops/s
+DZoneReadPojoGSON.read100kFromStream       thrpt  100  12.788 ± 0.155  ops/s
+DZoneReadPojoJackson.read100kFromStream    thrpt  100  21.959 ± 0.139  ops/s
+DZoneReadPojoJacksonAB.read100kFromStream  thrpt  100  26.529 ± 0.208  ops/s
+DZoneReadPojoJacksonJr.read100kFromStream  thrpt  100  24.311 ± 0.177  ops/s
+DZoneReadPojoJohnzon.read100kFromStream    thrpt  100   1.489 ± 0.297  ops/s
+DZoneReadPojoMoshi.read100kFromStream      thrpt  100   9.383 ± 0.104  ops/s
 
 --- Write POJO to Stream ---
 
 java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneWrite.*write10UsingStream.*" -wi 4 -i 5 -f 9
-Benchmark                                  Mode  Cnt        Score      Error  Units
 
-DZoneWriteBoon.write10UsingStream         thrpt   45   145920.793 ± 1398.165  ops/s
-DZoneWriteDslJson.write10UsingStream      thrpt   45  1248621.698 ± 4090.324  ops/s
-DZoneWriteFastjson.write10UsingStream     thrpt   45   633573.722 ± 4810.665  ops/s
-DZoneWriteGSON.write10UsingStream         thrpt   45    62443.344 ± 1424.105  ops/s
-DZoneWriteJackson.write10UsingStream      thrpt   45   409214.205 ± 9970.480  ops/s
-DZoneWriteJacksonAB.write10UsingStream    thrpt   45   539135.706 ± 8238.484  ops/s
-DZoneWriteJacksonJr.write10UsingStream    thrpt   45   368507.117 ± 1938.819  ops/s
-DZoneWriteJohnzon.write10UsingStream      thrpt   45    61380.222 ±  241.939  ops/s
-DZoneWriteJsonIO.write10UsingStream       thrpt   45    55047.774 ± 1349.265  ops/s
-DZoneWriteMoshi.write10UsingStream        thrpt   45   170623.359 ±  957.548  ops/s
+Benchmark                                Mode  Cnt        Score      Error  Units
+DZoneWriteBoon.write10UsingStream       thrpt  100   144921.045 ± 1339.407  ops/s
+DZoneWriteDslJson.write10UsingStream    thrpt  100  1249331.591 ± 3463.501  ops/s
+DZoneWriteFastjson.write10UsingStream   thrpt  100   632397.234 ± 3531.646  ops/s
+DZoneWriteGSON.write10UsingStream       thrpt  100    61907.531 ±  730.446  ops/s
+DZoneWriteJackson.write10UsingStream    thrpt  100   411733.877 ± 5703.015  ops/s
+DZoneWriteJacksonAB.write10UsingStream  thrpt  100   547963.975 ± 5106.876  ops/s
+DZoneWriteJacksonJr.write10UsingStream  thrpt  100   371484.669 ± 1344.742  ops/s
+DZoneWriteJohnzon.write10UsingStream    thrpt  100    61101.627 ±  166.023  ops/s
+DZoneWriteJsonIO.write10UsingStream     thrpt  100    53344.182 ± 1008.299  ops/s
+DZoneWriteMoshi.write10UsingStream      thrpt  100   169976.583 ±  791.651  ops/s
 
 java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneWrite.*write1kUsingStream.*" -wi 4 -i 5 -f 9
-Benchmark                                  Mode  Cnt        Score      Error  Units
 
+Benchmark                                  Mode  Cnt        Score      Error  Units
 DZoneWriteBoon.write1kUsingStream         thrpt   45     2384.741 ±   17.837  ops/s
 DZoneWriteDslJson.write1kUsingStream      thrpt   45    13578.064 ±   31.253  ops/s
 DZoneWriteFastjson.write1kUsingStream     thrpt   45     3887.526 ±   21.009  ops/s
