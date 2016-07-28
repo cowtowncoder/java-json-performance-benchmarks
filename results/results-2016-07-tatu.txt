@@ -102,31 +102,31 @@ DZoneWriteJohnzon.write10UsingStream    thrpt  100    61101.627 ±  166.023  ops
 DZoneWriteJsonIO.write10UsingStream     thrpt  100    53344.182 ± 1008.299  ops/s
 DZoneWriteMoshi.write10UsingStream      thrpt  100   169976.583 ±  791.651  ops/s
 
-java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneWrite.*write1kUsingStream.*" -wi 4 -i 5 -f 9
+java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneWrite.*write1kUsingStream.*" -wi 4 -i 5 -f 20
 
-Benchmark                                  Mode  Cnt        Score      Error  Units
-DZoneWriteBoon.write1kUsingStream         thrpt   45     2384.741 ±   17.837  ops/s
-DZoneWriteDslJson.write1kUsingStream      thrpt   45    13578.064 ±   31.253  ops/s
-DZoneWriteFastjson.write1kUsingStream     thrpt   45     3887.526 ±   21.009  ops/s
-DZoneWriteGSON.write1kUsingStream         thrpt   45      630.678 ±    9.228  ops/s
-DZoneWriteJackson.write1kUsingStream      thrpt   45     4401.440 ±   81.459  ops/s
-DZoneWriteJacksonAB.write1kUsingStream    thrpt   45     5891.807 ±   40.457  ops/s
-DZoneWriteJacksonJr.write1kUsingStream    thrpt   45     4057.420 ±   95.641  ops/s
-DZoneWriteJohnzon.write1kUsingStream      thrpt   45     1496.797 ±   20.854  ops/s
-DZoneWriteJsonIO.write1kUsingStream       thrpt   45      956.648 ±   15.043  ops/s
-DZoneWriteMoshi.write1kUsingStream        thrpt   45     1763.801 ±    9.083  ops/s
+Benchmark                                Mode  Cnt      Score    Error  Units
+DZoneWriteBoon.write1kUsingStream       thrpt  100   2394.046 ±  8.685  ops/s
+DZoneWriteDslJson.write1kUsingStream    thrpt  100  13540.133 ± 42.036  ops/s
+DZoneWriteFastjson.write1kUsingStream   thrpt  100   3918.928 ± 12.406  ops/s
+DZoneWriteGSON.write1kUsingStream       thrpt  100    630.126 ±  6.694  ops/s
+DZoneWriteJackson.write1kUsingStream    thrpt  100   4439.848 ± 51.128  ops/s
+DZoneWriteJacksonAB.write1kUsingStream  thrpt  100   5885.182 ± 19.672  ops/s
+DZoneWriteJacksonJr.write1kUsingStream  thrpt  100   4108.849 ± 21.245  ops/s
+DZoneWriteJohnzon.write1kUsingStream    thrpt  100   1501.663 ± 15.931  ops/s
+DZoneWriteJsonIO.write1kUsingStream     thrpt  100    966.580 ±  6.707  ops/s
+DZoneWriteMoshi.write1kUsingStream      thrpt  100   1747.133 ±  8.912  ops/s
 
 java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneWrite.*write100kUsingStream.*" -wi 4 -i 5 -f 9
 Benchmark                                  Mode  Cnt        Score      Error  Units
-
-DZoneWriteBoon.write100kUsingStream       thrpt   45       17.482 ±    0.128  ops/s
-DZoneWriteDslJson.write100kUsingStream    thrpt   45      133.129 ±    1.054  ops/s
-DZoneWriteFastjson.write100kUsingStream   thrpt   45       25.076 ±    0.217  ops/s
-DZoneWriteGSON.write100kUsingStream       thrpt   45        6.338 ±    0.092  ops/s
-DZoneWriteJackson.write100kUsingStream    thrpt   45       43.369 ±    1.445  ops/s
-DZoneWriteJacksonAB.write100kUsingStream  thrpt   45       58.029 ±    0.460  ops/s
-DZoneWriteJacksonJr.write100kUsingStream  thrpt   45       39.818 ±    0.212  ops/s
-DZoneWriteJohnzon.write100kUsingStream    thrpt   45       15.212 ±    0.180  ops/s
-DZoneWriteJsonIO.write100kUsingStream     thrpt   45        9.067 ±    0.093  ops/s
-DZoneWriteMoshi.write100kUsingStream      thrpt   45       18.372 ±    0.148  ops/s
+Benchmark                                  Mode  Cnt    Score   Error  Units
+DZoneWriteBoon.write100kUsingStream       thrpt  100   17.481 ± 0.109  ops/s
+DZoneWriteDslJson.write100kUsingStream    thrpt  100  132.026 ± 1.372  ops/s
+DZoneWriteFastjson.write100kUsingStream   thrpt  100   24.861 ± 0.163  ops/s
+DZoneWriteGSON.write100kUsingStream       thrpt  100    6.334 ± 0.056  ops/s
+DZoneWriteJackson.write100kUsingStream    thrpt  100   43.613 ± 0.601  ops/s
+DZoneWriteJacksonAB.write100kUsingStream  thrpt  100   58.147 ± 0.292  ops/s
+DZoneWriteJacksonJr.write100kUsingStream  thrpt  100   40.243 ± 0.290  ops/s
+DZoneWriteJohnzon.write100kUsingStream    thrpt  100   15.032 ± 0.134  ops/s
+DZoneWriteJsonIO.write100kUsingStream     thrpt  100    8.924 ± 0.075  ops/s
+DZoneWriteMoshi.write100kUsingStream      thrpt  100   18.131 ± 0.148  ops/s
 
