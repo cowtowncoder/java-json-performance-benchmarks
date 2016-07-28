@@ -15,11 +15,11 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 
 @State(Scope.Thread)
 @OutputTimeUnit(TimeUnit.SECONDS)
-public class DZoneWriteJackson extends DZoneWriteTestBase
+public class DZoneWriteJackson2x extends DZoneWriteTestBase
 {
     protected final ObjectWriter objectWriter;
 
-    public DZoneWriteJackson()
+    public DZoneWriteJackson2x()
     {
         objectWriter = new ObjectMapper().writerFor(MeasurementPOJO.class);
     }
