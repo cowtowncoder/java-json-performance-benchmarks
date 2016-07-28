@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.*;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.io.SerializedString;
 
 /**
  * Main test item. Contains both fields and getters/setters, given that different
@@ -13,6 +15,11 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({ "measurementId", "type", "duration", "time" })
 public class MeasurementRecord
 {
+    private final static SerializedString PROP_MEASUREMENT_ID = new SerializedString("measurementId");
+    private final static SerializedString PROP_TYPE = new SerializedString("type");
+    private final static SerializedString PROP_DURATION = new SerializedString("duration");
+    private final static SerializedString PROP_TIME = new SerializedString("time");
+
     public String measurementId;
     public MeasurementType type;
 
@@ -62,5 +69,19 @@ public class MeasurementRecord
                 +"\"time\":%d }",
                 measurementId, type.name(), duration, time
                 ));
+    }
+
+    public void writeTo(JsonGenerator gen) throws IOException
+    {
+        gen.writeStartObject();
+        gen.writeFieldName(PROP_MEASUREMENT_ID);
+        gen.writeString(measurementId);
+        gen.writeFieldName(PROP_TYPE);
+        gen.writeString(type.name());
+        gen.writeFieldName(PROP_DURATION);
+        gen.writeNumber(duration);
+        gen.writeFieldName(PROP_TIME);
+        gen.writeNumber(time);
+        gen.writeEndObject();
     }
 }

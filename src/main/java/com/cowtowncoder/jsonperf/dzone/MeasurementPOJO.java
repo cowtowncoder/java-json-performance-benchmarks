@@ -1,7 +1,10 @@
 package com.cowtowncoder.jsonperf.dzone;
 
 import com.dslplatform.json.CompiledJson;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.io.SerializedString;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -11,6 +14,8 @@ import java.util.List;
 @CompiledJson
 public class MeasurementPOJO
 {
+    private final static SerializedString PROP_ITEMS = new SerializedString("items");
+
     public List<MeasurementRecord> items;
 
     public MeasurementPOJO() { }
@@ -41,5 +46,17 @@ public class MeasurementPOJO
             throw new RuntimeException(e);
         }
         return sb.toString();
+    }
+
+    public void writeTo(JsonGenerator gen) throws IOException
+    {
+        gen.writeStartObject();
+        gen.writeFieldName(PROP_ITEMS);
+        gen.writeStartArray();
+        for (int i = 0, end = items.size(); i < end; ++i) {
+            items.get(i).writeTo(gen);
+        }
+        gen.writeEndArray();
+        gen.writeEndObject();
     }
 }
