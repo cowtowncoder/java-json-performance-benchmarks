@@ -88,7 +88,7 @@ DZoneReadPojoMoshi.read100kFromStream      thrpt  100   9.383 ± 0.104  ops/s
 
 --- Write POJO to Stream ---
 
-java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneWrite.*write10UsingStream.*" -wi 4 -i 5 -f 9
+java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneWrite.*write10UsingStream.*" -wi 4 -i 5 -f 20
 
 Benchmark                                Mode  Cnt        Score      Error  Units
 DZoneWriteBoon.write10UsingStream       thrpt  100   144921.045 ± 1339.407  ops/s
@@ -115,6 +115,14 @@ DZoneWriteJacksonJr.write1kUsingStream  thrpt  100   4108.849 ± 21.245  ops/s
 DZoneWriteJohnzon.write1kUsingStream    thrpt  100   1501.663 ± 15.931  ops/s
 DZoneWriteJsonIO.write1kUsingStream     thrpt  100    966.580 ±  6.707  ops/s
 DZoneWriteMoshi.write1kUsingStream      thrpt  100   1747.133 ±  8.912  ops/s
+
+(2.8.2-SNAPSHOT)
+
+DZoneWriteJackson2x.write1kUsingStream  thrpt  100  4499.615 ± 80.289  ops/s
+DZoneWriteJacksonAB.write1kUsingStream  thrpt  100  6340.743 ± 42.396  ops/s
+DZoneWriteJacksonJr.write1kUsingStream  thrpt  100  4415.156 ± 20.722  ops/s
+DZoneManualWJackson.write1kUsingStream  thrpt   50  7416.910 ± 39.221  ops/s
+
 
 java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneWrite.*write100kUsingStream.*" -wi 4 -i 5 -f 9
 Benchmark                                  Mode  Cnt        Score      Error  Units
