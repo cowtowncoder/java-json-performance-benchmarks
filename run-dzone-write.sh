@@ -1,3 +1,3 @@
 #!/bin/sh
 
-java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneWrite.*write1k.*AsString.*" -wi 4 -i 5 -f 9
+java -Xmx256m -jar target/microbenchmarks.jar ".*DZoneWriteJackson2x.*write1kUsingStream" -wi 4 -i 5 -f 9
