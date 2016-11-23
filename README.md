@@ -9,7 +9,7 @@ using widely-used, popular Java JSON libraries like:
 * [Jackson](https://github.com/FasterXML/jackson)
     * Also: lighter-weight [Jackson-jr](https://github.com/FasterXML/jackson-jr)
 
-as well as some of newer Java JSON library options:
+as well as some of newer Java JSON library (or multi-format with JSON support)  options:
 
 * [Boon](https://github.com/boonproject/boon/wiki/Boon-JSON-in-five-minutes)
 * [DSL-JSON](https://github.com/ngs-doo/dsl-json) (compatible with [DSL-Platform](https://dsl-platform.com/))
@@ -17,6 +17,7 @@ as well as some of newer Java JSON library options:
     * pre-1.0, incubation release
 * [json-io](https://github.com/jdereg/json-io)
 * [json-parse](https://github.com/mitchhentges/json-parse)
+* [Juneau](http://juneau.apache.org/)
 * [Moshi](https://github.com/square/moshi): Android-optimized lib (by some of GSON authors)
 
 The criteria for inclusion here is that for a library to be included it should
