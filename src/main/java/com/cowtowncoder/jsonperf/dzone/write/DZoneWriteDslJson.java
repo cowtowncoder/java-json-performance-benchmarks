@@ -22,7 +22,7 @@ public class DZoneWriteDslJson extends DZoneWriteTestBase
     public DZoneWriteDslJson()
     {
         json =  new DslJson<>();
-        writer = new JsonWriter();
+        writer = json.newWriter();
     }
 
     @Override
